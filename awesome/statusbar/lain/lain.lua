@@ -47,16 +47,20 @@ local config_path = awful.util.getdir("config") .. "statusbar/lain/"
 -- Textclock
 I.clock = wibox.widget {
   {
-    widget = wibox.widget.imagebox(beautiful.widget_clock)
+    stylesheet = "" .. string.format("path { fill: %s; }", gmc.color['gray900']),
+    image  = beautiful.widget_clock,
+    valign = "center",
+    halign = "center",
+    widget = wibox.widget.imagebox
   },
-  bg       = gmc.color['red900dark'],
+  bg       = "#ba4928", -- gmc.color['red900dark'],
   widget = wibox.container.background
 }
 W.clock = wibox.widget {
   {
     widget = wibox.widget.textclock(markup(gmc.color['gray900'], " %H:%M"))
   },
-  bg       = gmc.color['red900dark'],
+  bg       = "#ba4928", -- gmc.color['red900dark'],
   widget = wibox.container.background
 }
 
@@ -65,8 +69,8 @@ W.clock = wibox.widget {
 -- MEM
 I.mem = wibox.widget {
   image = beautiful.widget_mem,
-  forced_height   = dpi(20),
-  forced_width    = dpi(20),
+  forced_height = dpi(20),
+  forced_width  = dpi(20),
   valign = "center",
   halign = "center",
   widget = wibox.widget.imagebox
@@ -106,7 +110,7 @@ W.vol = lain.widget.alsa({
 -- ALSA volume control
 W.vol.widget:buttons(awful.util.table.join(
   awful.button({}, 1, function() -- left click
-    awful.spawn(string.format("%s -e alsamixer", terminal))
+    awful.spawn("pavucontrol")
   end),
   awful.button({}, 2, function() -- middle click
     os.execute(string.format("%s set %s 100%%", W.vol.cmd, W.vol.channel))
@@ -133,6 +137,7 @@ W.vol.widget:buttons(awful.util.table.join(
 -- VOL_PULSE
 I.vol_pulse = wibox.widget {
   image = beautiful.widget_vol,
+  scaling_quality = "best",
   forced_height   = dpi(20),
   forced_width    = dpi(20),
   valign = "center",
@@ -177,5 +182,10 @@ W.vol_pulse.widget:buttons(awful.util.table.join(
     W.vol_pulse.update()
   end)
 ))
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+-- KEY_LAYOUT
+W.key_layout = awful.widget.keyboardlayout()
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --

@@ -12,14 +12,14 @@ function _M.get ()
 --  names  = { "term", "net", "edit", "place", 5, 6, 7, 8, 9 },
     names  = {
       "main", "www", "dev",
-      "❹ 四", "❺ 五", " ❻ 六", 
-      "❼ 七", " ❽ 八", "❾ 九"
+      "四", "五", "六", 
+      "七", "八", "九"
     },
 
     layout = {
-      RC.layouts[1], RC.layouts[2], RC.layouts[4],
-      RC.layouts[5], RC.layouts[6], RC.layouts[11],
-      RC.layouts[9], RC.layouts[3], RC.layouts[7]
+      RC.layouts[1], RC.layouts[9], RC.layouts[9],
+      RC.layouts[9], RC.layouts[9], RC.layouts[9],
+      RC.layouts[9], RC.layouts[9], RC.layouts[9]
     }
   }
 

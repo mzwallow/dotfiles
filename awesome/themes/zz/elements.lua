@@ -26,13 +26,13 @@ theme.border_marked = gmc.color['redA700']
 -- {{{ Tag List
 theme.bg_normal     = gmc.color['gray900']
 theme.bg_focus      = gmc.color['red900dark']
-theme.bg_urgent     = gmc.color['white']
+theme.bg_urgent     = gmc.color['redA400']
 theme.bg_minimize   = gmc.color['gray300'] 
 theme.bg_systray    = gmc.color['gray300'] 
 
 theme.fg_normal     = gmc.color['red900dark']
 theme.fg_focus      = gmc.color['redA700']
-theme.fg_urgent     = gmc.color['white']
+theme.fg_urgent     = gmc.color['red900dark']
 theme.fg_minimize   = gmc.color['redA700']
 
 theme.taglist_bg_focus = gmc.color['red900dark']

@@ -74,8 +74,8 @@ function WB.add_widgets_monitor_right (s)
   return {
     layout = wibox.layout.fixed.horizontal,
 
-    -- vol_pulse
-    cis.vol_pulse,      cws.vol_pulse,
+    -- key_layout
+    cws.key_layout,
     -- vol
     cis.vol,      cws.vol,
     -- mem
@@ -107,8 +107,8 @@ function WB.generate_wibox_two (s)
     height = dpi(25), 
     width = dpi(1259), -- 1900
     -- bg = "#00000000",
-    bg = theme.bg_normal,
-    fg = theme.fg_normal,
+    bg = theme.bg_normal, -- "#263238",
+    fg = "#ba4928", -- theme.fg_normal,
     opacity = 1.0,
   })
 

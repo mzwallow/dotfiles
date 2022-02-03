@@ -1,13 +1,15 @@
 local icondir = ""
+local fadir = ""
 
 icondir = theme_path .. "icons/"
+fadir = theme_path .. "icons/fontawesome/png40/"
 
 theme.widget_ac                                 = icondir .. "ac.png"
 theme.widget_battery                            = icondir .. "battery.png"
 theme.widget_battery_low                        = icondir .. "battery_low.png"
 theme.widget_battery_empty                      = icondir .. "battery_empty.png"
-theme.widget_mem                                = icondir .. "mem.png"
-theme.widget_clock                              = icondir .. "clock.png"
+theme.widget_mem                                = icondir .. "memory.png"
+theme.widget_clock                              = icondir .. "clock-solid.svg"
 theme.widget_cpu                                = icondir .. "cpu.png"
 theme.widget_temp                               = icondir .. "temp.png"
 theme.widget_net                                = icondir .. "net.png"

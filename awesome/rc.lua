@@ -80,3 +80,10 @@ require("main.signals")
 local statusbar = require("statusbar.lain.statusbar")
 
 statusbar()
+
+-- Run garbage collector regularly to prevent memory leaks
+gears.timer {
+  timeout = 30,
+  autostart = true,
+  callback = function() collectgarbage() end
+}
