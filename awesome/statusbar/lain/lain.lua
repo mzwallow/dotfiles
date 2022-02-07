@@ -53,14 +53,14 @@ I.clock = wibox.widget {
     halign = "center",
     widget = wibox.widget.imagebox
   },
-  bg       = "#ba4928", -- gmc.color['red900dark'],
+  bg       = gmc.color['redCustom'],
   widget = wibox.container.background
 }
 W.clock = wibox.widget {
   {
     widget = wibox.widget.textclock(markup(gmc.color['gray900'], " %H:%M"))
   },
-  bg       = "#ba4928", -- gmc.color['red900dark'],
+  bg       = gmc.color['redCustom'],
   widget = wibox.container.background
 }
 
@@ -68,16 +68,17 @@ W.clock = wibox.widget {
 
 -- MEM
 I.mem = wibox.widget {
+  stylesheet = "" .. string.format("path { fill: %s; }", gmc.color['redCustom']),
   image = beautiful.widget_mem,
-  forced_height = dpi(20),
-  forced_width  = dpi(20),
+  -- forced_height = dpi(20),
+  -- forced_width  = dpi(20),
   valign = "center",
   halign = "center",
   widget = wibox.widget.imagebox
 }
 W.mem = lain.widget.mem {
   settings = function()
-    widget:set_markup(markup(gmc.color['red900dark'], mem_now.used .. "MB "))
+    widget:set_markup(markup(gmc.color['redCustom'], mem_now.used .. "MB "))
   end
 }
 
@@ -136,30 +137,29 @@ W.vol.widget:buttons(awful.util.table.join(
 
 -- VOL_PULSE
 I.vol_pulse = wibox.widget {
-  image = beautiful.widget_vol,
-  scaling_quality = "best",
-  forced_height   = dpi(20),
-  forced_width    = dpi(20),
-  valign = "center",
-  halign = "center",
-  widget = wibox.widget.imagebox
+  {
+    image = beautiful.widget_vol,
+    forced_height   = dpi(14),
+    forced_width    = dpi(14),
+    widget = wibox.widget.imagebox
+  },
+  right = 4,
+  left = 8,
+  top = 8,
+  bottom = 8,
+  widget = wibox.container.margin
 }
-W.vol_pulse = lain.widget.pulse({
+W.vol_pulse = lain.widget.pulse {
   settings = function()
-    vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device
-    -- if volume_now.status == "off" then
-    --   I.vol_pulse:set_image(beautiful.widget_vol_mute)
-    -- elseif tonumber(volume_now.level) == 0 then
-    --   I.vol_pulse:set_image(beautiful.widget_vol_no)
-    -- elseif tonumber(volume_now.level) <= 50 then
-    --   I.vol_pulse:set_image(beautiful.widget_vol_low)
-    -- else
-    --   I.vol_pulse:set_image(beautiful.widget_vol)
-    -- end
+    -- vlevel = volume_now.left .. "-" .. volume_now.right .. "% | " .. volume_now.device .. " " .. volume_now.muted
 
-    widget:set_markup(markup(gmc.color['red900dark'], vlevel .. "% "))
+    widget:set_markup(markup(gmc.color['redCustom'], volume_now.left .. "%  "))
   end
-})
+}
+W.vol_pulsebar = lain.widget.pulsebar {
+  followtag = true,
+}
+
 -- PulseAudio volume control
 W.vol_pulse.widget:buttons(awful.util.table.join(
   awful.button({}, 1, function() -- left click

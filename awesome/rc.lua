@@ -52,6 +52,7 @@ RC.mainmenu = awful.menu({ items = main.menu() }) -- in globalkeys
 RC.launcher = awful.widget.launcher(
   { image = beautiful.awesome_icon, menu = RC.mainmenu }
 )
+-- Menubar configuration
 menubar.utils.terminal = RC.vars.terminal
 
 -- Mouse and Key bindings

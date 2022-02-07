@@ -76,10 +76,10 @@ function WB.add_widgets_monitor_right (s)
 
     -- key_layout
     cws.key_layout,
-    -- vol
-    cis.vol,      cws.vol,
     -- mem
     cis.mem,      cws.mem,
+    -- vol_pulse
+    cis.vol_pulse,      cws.vol_pulse,
     -- time
     cws.clock,    cis.clock,
   }

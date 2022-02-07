@@ -31,6 +31,7 @@ _M.color = {
   ['redA400'] = '#ff1744',
   ['redA700'] = '#d50000',
   ['redA700dark'] = '#9b0000',
+  ['redCustom'] = '#ba4928',
 }
 
 return _M
