@@ -69,7 +69,7 @@ function _M.init()
   WB.taglist  = deco.taglist()
   WB.tasklist = deco.tasklist()
 
-  WB.initdeco()
+  --WB.initdeco()
 
   awful.screen.connect_for_each_screen(function(s)
     WB.setup_common_boxes (s)
@@ -78,7 +78,7 @@ function _M.init()
     WB.generate_wibox_one(s)
 
     -- Create the bottom wibox
-    WB.generate_wibox_two(s)
+    --WB.generate_wibox_two(s)
   end)
 
 end
