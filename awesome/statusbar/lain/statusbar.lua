@@ -70,14 +70,14 @@ end
 function _M.init()
   WB.taglist  = deco.taglist()
   WB.tasklist = deco.tasklist()
-  WB.initdeco ()
+  -- WB.initdeco ()
     
   awful.screen.connect_for_each_screen(function(s)
     WB.setup_common_boxes (s)
     
     -- Create the top wibox
-    -- WB.generate_wibox_one (s)
-    WB.generate_wibox_two (s)
+    WB.generate_wibox_one (s)
+    -- WB.generate_wibox_two (s)
   end)
 
 end
@@ -85,4 +85,7 @@ end
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return setmetatable({}, { __call = function(_, ...) return _M.init(...) end })
+return setmetatable(
+  {}, 
+  { __call = function(_, ...) return _M.init(...) end }
+)

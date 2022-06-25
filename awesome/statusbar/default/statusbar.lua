@@ -22,7 +22,7 @@ wibox_package = WB -- global object name
 
 -- default statusbar
 require("statusbar.default.helper_default")
-require("statusbar.default.helper_empty")
+require("statusbar.default.taglist")
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -69,8 +69,6 @@ function _M.init()
   WB.taglist  = deco.taglist()
   WB.tasklist = deco.tasklist()
 
-  --WB.initdeco()
-
   awful.screen.connect_for_each_screen(function(s)
     WB.setup_common_boxes (s)
     
@@ -78,7 +76,7 @@ function _M.init()
     WB.generate_wibox_one(s)
 
     -- Create the bottom wibox
-    --WB.generate_wibox_two(s)
+    WB.generate_wibox_taglist(s)
   end)
 
 end
@@ -86,4 +84,7 @@ end
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-return setmetatable({}, { __call = function(_, ...) return _M.init(...) end })
+return setmetatable(
+  {}, 
+  { __call = function(_, ...) return _M.init(...) end }
+)

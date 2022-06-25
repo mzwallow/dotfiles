@@ -4,7 +4,7 @@ sudo pacman -S git go neovim vi vim nano zsh ttf-jetbrains-mono wget \
   noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk \
   htop docker docker-compose pipewire pipewire-alsa pipewire-jack \
   pipewire-pulse pavucontrol alsa-firmware sof-firmware alsa-ucm-conf \
-  tree kitty --noconfirm
+  tree kitty picom pipewire-v4l2 gstreamer gst-plugin-pipewire --noconfirm
 
 sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
