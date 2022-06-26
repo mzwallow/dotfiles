@@ -7,8 +7,8 @@ local dpi = xresources.apply_dpi
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- {{{ Font
-theme.font          = "JetBrains Mono 6" -- "Terminus 8" -- "Tamsyn 10" -- "Sans 8"
-theme.taglist_font  = "JetBrains Mono 7" -- "Inconsolata Medium 9"
+theme.font          = "JetBrains Mono 10" -- "Terminus 8" -- "Tamsyn 10" -- "Sans 8"
+theme.taglist_font  = "JetBrains Mono 10" -- "Inconsolata Medium 9"
 -- }}}
 
 -- {{{ Gap

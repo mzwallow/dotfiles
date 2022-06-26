@@ -78,7 +78,7 @@ require("main.signals")
 -- Statusbar: Wibar
 --require("deco.statusbar") -- old
 local statusbar = require("statusbar.default.statusbar")
---local statusbar = require("statusbar.lain.statusbar")
+-- local statusbar = require("statusbar.lain.statusbar")
 
 statusbar()
 
