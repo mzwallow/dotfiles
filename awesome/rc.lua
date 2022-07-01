@@ -15,24 +15,42 @@ require("awful.hotkeys_popup.keys")
 
 -- Global namespace
 Global = {}
-
--- {{{ Error handling
-require("main.error-handling")
--- }}}
-
--- {{{ Variable definitions
+-- Variable definitions
 Global.vars = require("main.user-variables")
--- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
+-- Error handling
+require("main.error-handling")
+
+-- Themes
+require("main.theme")
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+local main = {
+    layouts = require("main.layouts"),
+    menu    = require("main.menu"),
+    tags    = require("main.tags"),
+    rules   = require("main.rules")
+}
+
+local binding = {
+    globalkeys      = require("binding.globalkeys"),
+    mousebuttons    = require("binding.mousebuttons"),
+    clientbuttons   = require("binding.clientbuttons"),
+    clientkeys      = require("binding.clientkeys"),
+    bindtotags      = require("binding.bindtotags")
+}
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+-- Layouts
 Global.layouts = require("main.layouts")
+
+-- Tags
 Global.tags = require("main.tags")
--- }}}
 
 -- {{{ Menu
-local menu_items = require("main.menu")
-Global.mainmenu = awful.menu({ items = menu_items })
-
+Global.mainmenu = awful.menu({ items = main.menu() })
 Global.launcher = awful.widget.launcher({
     image = beautiful.awesome_icon,
     menu = Global.mainmenu
@@ -42,34 +60,27 @@ Global.launcher = awful.widget.launcher({
 menubar.utils.terminal = Global.vars.terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
--- {{{ Wibar: Status Bar
-require("deco.statusbar")
--- }}}
-
--- {{{ Mouse bindings
-Global.mousebuttons = require("binding.mousebuttons")
-root.buttons(Global.mousebuttons)
--- }}}
+-- Mouse bindings
+root.buttons(binding.mousebuttons())
 
 -- {{{ Key bindings
-Global.globalkeys = require("binding.globalkeys")
-Global.globalkeys = require("binding.bindtotags").bind(Global.globalkeys)
-
-Global.clientkeys = require("binding.clientkeys")
-Global.clientbuttons = require("binding.clientbuttons")
+Global.globalkeys = binding.globalkeys()
+Global.globalkeys = binding.bindtotags(Global.globalkeys)
 
 -- Set keys
 root.keys(Global.globalkeys)
 -- }}}
 
--- {{{ Rules
+-- Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = require("main.rules").set(Global.clientkeys, Global.clientbuttons)
--- }}}
+awful.rules.rules = main.rules(
+    binding.clientkeys(),
+    binding.clientbuttons()
+)
 
--- {{{ Signals
+-- Signals
 require("main.signals")
--- }}}
+
+-- Statusbar: Wibar
+local statusbar = require("statusbar.default.statusbar")
+statusbar()

@@ -2,14 +2,14 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local menu = {}
-local menu_items = {}
-
 local terminal = Global.vars.terminal
 local editor_cmd = Global.vars.editor_cmd
 
+local _M = {}
+local M = {}
+
 -- Create a launcher widget and a main menu
-menu.awesome = {
+M.awesome = {
     {"hotkeys", function()
         hotkeys_popup.show_help(nil, awful.screen.focused())
     end}, 
@@ -19,9 +19,16 @@ menu.awesome = {
     {"quit", function() awesome.quit() end}
 }
 
-menu_items = {
-    {"awesome", menu.awesome, beautiful.awesome_icon}, 
-    {"open terminal", terminal}
-}
+function _M.get()
+    local menu_items = {
+        {"awesome", M.awesome, beautiful.awesome_icon}, 
+        {"open terminal", terminal}
+    }
+    
+    return menu_items
+end
 
-return menu_items
+return setmetatable(
+    {},
+    {__call = function(_, ...) return _M.get(...) end}
+)

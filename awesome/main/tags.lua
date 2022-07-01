@@ -1,18 +1,33 @@
 local awful = require("awful")
 
-local tags = {}
+local _M = {}
 
-awful.screen.connect_for_each_screen(function (s)
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag(
-        {
+function _M.get()
+    local tags = {}
+
+    local tag_pairs = {
+        names = {
             "1", "2", "3",
             "4", "5", "6",
             -- "7", "8", "9"
         },
-        s,
-        Global.layouts[1]
-    )
-end)
+        
+        layouts = {
+            Global.layouts[9], Global.layouts[9], Global.layouts[9],
+            Global.layouts[9], Global.layouts[9], Global.layouts[9],
+            -- Global.layouts[9], Global.layouts[9], Global.layouts[9]
+        }
+    }
 
-return tags
+    awful.screen.connect_for_each_screen(function (s)
+        -- Each screen has its own tag table.
+        tags[s] = awful.tag(tag_pairs.names, s, tag_pairs.layouts)
+    end)
+
+    return tags
+end
+
+return setmetatable(
+    {},
+    {__call = function(_, ...) return _M.get(...) end}
+)

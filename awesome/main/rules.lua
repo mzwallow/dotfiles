@@ -3,7 +3,7 @@ local beautiful = require("beautiful")
 
 local _M = {}
 
-function _M.set(clientkeys, clientbuttons)
+function _M.get(clientkeys, clientbuttons)
     local rules = { 
         -- All clients will match this rule.
         {
@@ -62,4 +62,7 @@ function _M.set(clientkeys, clientbuttons)
     return rules
 end
 
-return _M
+return setmetatable(
+    {},
+    {__call = function(_, ...) return _M.get(...) end}
+)

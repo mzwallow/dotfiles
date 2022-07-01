@@ -3,29 +3,35 @@ local awful = require("awful")
 
 local modkey = Global.vars.modkey
 
-local taglist_buttons = {}
+local _M = {}
 
--- Create a wibox for each screen and add it
-taglist_buttons = gears.table.join(
-    awful.button({}, 1, function(t)
-        t:view_only()
-    end), 
-    awful.button({modkey}, 1, function(t)
-        if client.focus then
-            client.focus:move_to_tag(t)
-        end
-    end), 
-    awful.button({}, 3, awful.tag.viewtoggle), awful.button({modkey}, 3, function(t)
-        if client.focus then
-            client.focus:toggle_tag(t)
-        end
-    end), 
-    awful.button({}, 4, function(t)
-        awful.tag.viewnext(t.screen)
-    end), 
-    awful.button({}, 5, function(t)
-        awful.tag.viewprev(t.screen)
-    end)
+function _M.get()
+    local taglist_buttons = gears.table.join(
+        awful.button({}, 1, function(t)
+            t:view_only()
+        end), 
+        awful.button({modkey}, 1, function(t)
+            if client.focus then
+                client.focus:move_to_tag(t)
+            end
+        end), 
+        awful.button({}, 3, awful.tag.viewtoggle), awful.button({modkey}, 3, function(t)
+            if client.focus then
+                client.focus:toggle_tag(t)
+            end
+        end), 
+        awful.button({}, 4, function(t)
+            awful.tag.viewnext(t.screen)
+        end), 
+        awful.button({}, 5, function(t)
+            awful.tag.viewprev(t.screen)
+        end)
+    )
+
+    return taglist_buttons
+end
+
+return setmetatable(
+    {},
+    {__call = function(_, ...) return _M.get(...) end}
 )
-
-return taglist_buttons

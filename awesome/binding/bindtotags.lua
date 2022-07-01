@@ -5,7 +5,7 @@ local modkey = Global.vars.modkey
 
 local _M = {}
 
-function _M.bind(globalkeys)
+function _M.get(globalkeys)
     -- Bind all key numbers to tags.
     -- Be careful: we use keycodes to make it work on any keyboard layout.
     -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -58,4 +58,7 @@ function _M.bind(globalkeys)
     return globalkeys
 end
 
-return _M
+return setmetatable(
+    {},
+    {__call = function(_, ...) return _M.get(...) end}
+)
