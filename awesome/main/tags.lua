@@ -13,7 +13,7 @@ function _M.get()
         },
         
         layouts = {
-            Global.layouts[9], Global.layouts[9], Global.layouts[9],
+            Global.layouts[1], Global.layouts[9], Global.layouts[9],
             Global.layouts[9], Global.layouts[9], Global.layouts[9],
             -- Global.layouts[9], Global.layouts[9], Global.layouts[9]
         }

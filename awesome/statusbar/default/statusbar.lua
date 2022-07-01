@@ -32,7 +32,7 @@ function WB.setup_common_boxes (s)
   set_wallpaper(s)
 
   -- Create a promptbox for each screen
-  s.promptbox = awful.widget.prompt()
+  s.mypromptbox = awful.widget.prompt()
 
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.

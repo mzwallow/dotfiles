@@ -24,7 +24,7 @@ function WB.add_widgets_left (s)
     Global.launcher,
     s.taglist,
     wibox.widget.textbox(" | "),
-    s.promptbox,
+    s.mypromptbox,
   }
 end
 
