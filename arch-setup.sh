@@ -7,15 +7,16 @@ sudo pacman -S go zsh ttf-jetbrains-mono wget \
   tree kitty picom pipewire-v4l2 gstreamer gst-plugin-pipewire xorg xorg-xinit \
   nvidia nvidia-settings nvidia-prime mesa mesa-utils xf86-video-intel vulkan-intel \
   discord ttf-th-sarabun-new fonts-tlwg nm-connection-editor network-manager-applet \
-  openvpn networkmanager-openvpn jre17-openjdk dbeaver seahorse neofetch tmux \
-  xfce4-clipman-plugin --noconfirm
+  openvpn networkmanager-openvpn jre17-openjdk dbeaver neofetch tmux \
+  xfce4-clipman-plugin gnome-keyring libsecret libgnome-keyring gnu-free-fonts \
+  ttf-roboto --noconfirm
 
 ln -s $HOME/Packages/dotfiles/.xinitrc $HOME/.xinitrc
 ln -s $HOME/Packages/dotfiles/awesome $HOME/.config/awesome
 ln -s $HOME/Packages/dotfiles/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 
 yay -S google-chrome postman-bin visual-studio-code-bin ttf-all-the-icons mons \
-  --noconfirm
+  ttf-ms-win11-auto ttf-ms-win11-auto-thai --noconfirm
 
 chsh -s /bin/zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
