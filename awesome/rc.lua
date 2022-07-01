@@ -44,10 +44,10 @@ local binding = {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Layouts
-Global.layouts = require("main.layouts")
+Global.layouts = main.layouts()
 
 -- Tags
-Global.tags = require("main.tags")
+Global.tags = main.tags()
 
 -- {{{ Menu
 Global.mainmenu = awful.menu({ items = main.menu() })
