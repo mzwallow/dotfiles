@@ -54,6 +54,8 @@ function _M.bind(globalkeys)
             group = "tag"
         }))
     end
+
+    return globalkeys
 end
 
 return _M

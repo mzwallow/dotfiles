@@ -14,7 +14,7 @@ layouts = {
     -- awful.layout.suit.fair.horizontal,  -- 7:
 
     -- awful.layout.suit.spiral,           -- 8:
-    awful.layout.suit.spiral.dwindle,   -- 9:
+    awful.layout.suit.spiral.dwindle    -- 9:
 
     -- awful.layout.suit.max,              -- 10:
     -- awful.layout.suit.max.fullscreen,   -- 11:
