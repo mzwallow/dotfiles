@@ -9,7 +9,7 @@ sudo pacman -S go zsh ttf-jetbrains-mono wget \
   discord nm-connection-editor network-manager-applet \
   openvpn networkmanager-openvpn jre17-openjdk dbeaver neofetch tmux \
   xfce4-clipman-plugin gnome-keyring libsecret libgnome-keyring gnu-free-fonts \
-  ttf-roboto
+  ttf-roboto intel-media-driver
 
 ln -s $HOME/Packages/dotfiles/.xinitrc $HOME/.xinitrc
 ln -s $HOME/Packages/dotfiles/awesome $HOME/.config/awesome
