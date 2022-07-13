@@ -1,0 +1,4 @@
+CURRENT: 609
+
+500: Go back where you came from <C-o>. <C-i> goes forward.
+509: Matching parentheses: use '%'
