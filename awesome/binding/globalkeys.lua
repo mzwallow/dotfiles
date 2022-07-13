@@ -165,6 +165,12 @@ function _M.get()
         end, {
             description = "change keyboard layout",
             group = "awesome"
+        }), -- Screen Capture
+        awful.key({}, "Print", function()
+            awful.util.spawn("maim -s -u | xclip -selection clipboard -t image/png -i")
+        end, {
+            description = "screen capture",
+            group = "screen"
         })
     )
 
