@@ -39,9 +39,6 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 # ZSH_THEME="spaceship"
 
-xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Tapping Enabled" 1
-xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Natural Scrolling Enabled" 1 
-
 # Nuphy Air 75
 sudo echo 0 >> /sys/module/hid_apple/parameters/fnmode
 sudo echo "options hid_apple fnmode=0" >> /etc/modprobe.d/hid_apple.conf
