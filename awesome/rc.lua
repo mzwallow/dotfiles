@@ -84,3 +84,6 @@ require("main.signals")
 -- Statusbar: Wibar
 local statusbar = require("statusbar.default.statusbar")
 statusbar()
+
+awful.util.spawn("/bin/nm-applet")
+-- awful.spawn.with_shell("~/.config/awesome/autorun.sh")

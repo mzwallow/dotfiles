@@ -1,0 +1,28 @@
+/* CSV */
+38424c,1b2d35,193945,cd6f7c,647481,6b8896,4f7d8d,28404c,263038,8e97a0
+
+/* With # */
+#38424c, #1b2d35, #193945, #cd6f7c, #647481, #6b8896, #4f7d8d, #28404c, #263038, #8e97a0
+
+/* Array */
+["38424c","1b2d35","193945","cd6f7c","647481","6b8896","4f7d8d","28404c","263038","8e97a0"]
+
+/* Object */
+{"Charcoal":"38424c","Gunmetal":"1b2d35","Gunmetal 2":"193945","Candy Pink":"cd6f7c","Slate Gray":"647481","Light Slate Gray":"6b8896","Teal Blue":"4f7d8d","Charcoal 2":"28404c","Gunmetal 3":"263038","Cadet Grey":"8e97a0"}
+
+/* Extended Array */
+[{"name":"Charcoal","hex":"38424c","rgb":[56,66,76],"cmyk":[26,13,0,70],"hsb":[210,26,30],"hsl":[210,15,26],"lab":[27,-1,-7]},{"name":"Gunmetal","hex":"1b2d35","rgb":[27,45,53],"cmyk":[49,15,0,79],"hsb":[198,49,21],"hsl":[198,33,16],"lab":[17,-5,-7]},{"name":"Gunmetal","hex":"193945","rgb":[25,57,69],"cmyk":[64,17,0,73],"hsb":[196,64,27],"hsl":[196,47,18],"lab":[22,-8,-11]},{"name":"Candy Pink","hex":"cd6f7c","rgb":[205,111,124],"cmyk":[0,46,40,20],"hsb":[352,46,80],"hsl":[352,48,62],"lab":[58,38,10]},{"name":"Slate Gray","hex":"647481","rgb":[100,116,129],"cmyk":[22,10,0,49],"hsb":[207,22,51],"hsl":[207,13,45],"lab":[48,-3,-9]},{"name":"Light Slate Gray","hex":"6b8896","rgb":[107,136,150],"cmyk":[29,9,0,41],"hsb":[200,29,59],"hsl":[200,17,50],"lab":[55,-7,-11]},{"name":"Teal Blue","hex":"4f7d8d","rgb":[79,125,141],"cmyk":[44,11,0,45],"hsb":[195,44,55],"hsl":[195,28,43],"lab":[50,-11,-14]},{"name":"Charcoal","hex":"28404c","rgb":[40,64,76],"cmyk":[47,16,0,70],"hsb":[200,47,30],"hsl":[200,31,23],"lab":[26,-6,-10]},{"name":"Gunmetal","hex":"263038","rgb":[38,48,56],"cmyk":[32,14,0,78],"hsb":[207,32,22],"hsl":[207,19,18],"lab":[19,-2,-6]},{"name":"Cadet Grey","hex":"8e97a0","rgb":[142,151,160],"cmyk":[11,6,0,37],"hsb":[210,11,63],"hsl":[210,9,59],"lab":[62,-1,-6]}]
+
+/* XML */
+<palette>
+  <color name="Charcoal" hex="38424c" r="56" g="66" b="76" />
+  <color name="Gunmetal" hex="1b2d35" r="27" g="45" b="53" />
+  <color name="Gunmetal" hex="193945" r="25" g="57" b="69" />
+  <color name="Candy Pink" hex="cd6f7c" r="205" g="111" b="124" />
+  <color name="Slate Gray" hex="647481" r="100" g="116" b="129" />
+  <color name="Light Slate Gray" hex="6b8896" r="107" g="136" b="150" />
+  <color name="Teal Blue" hex="4f7d8d" r="79" g="125" b="141" />
+  <color name="Charcoal" hex="28404c" r="40" g="64" b="76" />
+  <color name="Gunmetal" hex="263038" r="38" g="48" b="56" />
+  <color name="Cadet Grey" hex="8e97a0" r="142" g="151" b="160" />
+</palette>
