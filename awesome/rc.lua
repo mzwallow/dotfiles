@@ -86,4 +86,4 @@ local statusbar = require("statusbar.default.statusbar")
 statusbar()
 
 awful.util.spawn("/bin/nm-applet")
--- awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.util.spawn("/usr/bin/optimus-manager-qt")

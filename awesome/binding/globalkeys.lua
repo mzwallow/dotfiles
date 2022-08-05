@@ -171,6 +171,36 @@ function _M.get()
         end, {
             description = "screen capture",
             group = "screen"
+        }), -- Screen Brightness
+        awful.key({}, "XF86MonBrightnessUp", function()
+            awful.util.spawn("xbacklight +10%")
+        end, {
+            description = "increase brightness",
+            group = "function keys"
+        }),
+        awful.key({}, "XF86MonBrightnessDown", function()
+            awful.util.spawn("xbacklight -10%")
+        end, {
+            description = "decrease brightness",
+            group = "function keys"
+        }), -- Volume
+        awful.key({}, "XF86AudioRaiseVolume", function()
+            awful.util.spawn("amixer sset Master 2%+")
+        end, {
+            description = "increase volume",
+            group = "function keys"
+        }),
+        awful.key({}, "XF86AudioLowerVolume", function()
+            awful.util.spawn("amixer sset Master 2%-")
+        end, {
+            description = "decrease volume",
+            group = "function keys"
+        }),
+        awful.key({}, "XF86AudioMute", function()
+            awful.util.spawn("amixer sset Master toggle")
+        end, {
+            description = "mute/unmute volume",
+            group = "function keys"
         })
     )
 

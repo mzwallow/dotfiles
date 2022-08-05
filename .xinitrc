@@ -52,4 +52,5 @@ mkdir -p "$HOME"/.local/share/keyrings
 xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "MSFT0001:01 06CB:CD5F Touchpad" "libinput Natural Scrolling Enabled" 1
 setxkbmap -layout "us,th"
+prime-offload
 exec awesome

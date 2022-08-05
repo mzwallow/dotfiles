@@ -213,6 +213,29 @@ Finally, restart the machine by typing `reboot`.
     xdg-user-dirs-update
     ```
 
+* Power management
+  * ACPI
+
+    Battery state.
+
+    ```text
+      $ sudo pacman -S acpi
+    ```
+
+  * CPU frequency scaling
+    
+    More details [here.](https://wiki.archlinux.org/title/CPU_frequency_scaling)
+    * Userspace tools
+
+      ```text
+        $ sudo pacman -S thermald cpupower
+      ```
+
+      ```text
+        # systemctl enable/start thermald.service
+        # systemctl enable cpupower.service
+      ```
+
 * Multimedia
   * Sound system
 
@@ -333,7 +356,7 @@ Finally, restart the machine by typing `reboot`.
     * Image viewers
 
       ```text
-      $ sudo pacman -S qeh
+      $ sudo pacman -S feh
       ```
 
     * Raster graphics editors
