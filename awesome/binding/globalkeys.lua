@@ -201,7 +201,13 @@ function _M.get()
         end, {
             description = "mute/unmute volume",
             group = "function keys"
-        })
+        }),
+	awful.key({}, "Print", function()
+	    awful.util.spawn("maim -s | xclip -selection clipboard -t image/png")
+	end, {
+	    description = "Screenshot",
+	    group = "function keys"
+	})
     )
 
     return globalkeys

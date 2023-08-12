@@ -9,13 +9,13 @@ function _M.get()
         names = {
             "1", "2", "3",
             "4", "5", "6",
-            -- "7", "8", "9"
+            "7", "8", "9"
         },
         
         layouts = {
-            Global.layouts[1], Global.layouts[1], Global.layouts[1],
-            Global.layouts[1], Global.layouts[1], Global.layouts[1],
-            -- Global.layouts[1], Global.layouts[1], Global.layouts[1]
+            Global.layouts[2], Global.layouts[2], Global.layouts[2],
+            Global.layouts[2], Global.layouts[2], Global.layouts[2],
+            Global.layouts[2], Global.layouts[2], Global.layouts[2]
         }
     }
 
