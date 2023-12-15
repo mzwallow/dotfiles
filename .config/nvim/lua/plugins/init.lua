@@ -33,30 +33,6 @@ local plugins = {
     end,
   },
 
-  -- [[ Picker ]] --
-  {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "BurntSushi/ripgrep",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
-    },
-    cmd = "Telescope",
-    init = function()
-      require("core.utils").load_mappings("telescope")
-    end,
-    config = function()
-      require("plugins.configs.telescope")
-    end,
-  },
-
   -- [[ Git ]] --
   { "tpope/vim-fugitive", init = function() require("core.utils").lazy_load("vim-fugitive") end },
   { "tpope/vim-rhubarb",  init = function() require("core.utils").lazy_load("vim-rhubarb") end },
@@ -164,6 +140,45 @@ local plugins = {
     opts = {},
     config = function(_, opts)
       require("Comment").setup(opts)
+    end,
+  },
+
+  -- [[ File manager, Picker, etc ]] --
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "BurntSushi/ripgrep",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
+    cmd = "Telescope",
+    init = function()
+      require("core.utils").load_mappings("telescope")
+    end,
+    config = function()
+      require("plugins.configs.telescope")
+    end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "antosha417/nvim-lsp-file-operations",
+    },
+    init = function()
+      require("core.utils").load_mappings("nvimtree")
+    end,
+    config = function()
+      require("plugins.configs.nvimtree")
     end,
   },
 

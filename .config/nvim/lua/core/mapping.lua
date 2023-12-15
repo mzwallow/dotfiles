@@ -16,7 +16,7 @@ M.general = {
 
   n = {
     ["<leader>"] = { "<Nop>", opts = { silent = true } },
-    ["<leader>ex"] = { vim.cmd.Ex, "[E][x]plorer", },
+    -- ["<leader>ex"] = { vim.cmd.Ex, "[E][x]plorer", },
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
 
     ["J"] = { "mzJ`z" },
@@ -169,6 +169,15 @@ M.gitsigns = {
       "Jump to previous hunk",
       opts = { expr = true },
     },
+  },
+}
+
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    ["<leader>ex"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree [e][x]plorer", },
+    ["<leader>x"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree e[x]plorer", },
   },
 }
 

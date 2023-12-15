@@ -52,6 +52,10 @@ opt.completeopt = "menuone,noselect"
 opt.updatetime = 250
 opt.timeoutlen = 300
 
+-- NvimTree
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
