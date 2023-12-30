@@ -181,4 +181,31 @@ M.nvimtree = {
   },
 }
 
+M.codeium = {
+  plugin = true,
+
+  i = {
+    ["<C-g>"] = {
+      function() return vim.fn['codeium#Accept']() end,
+      "Codeium: Insert suggestion",
+      opts = { expr = true, silent = true },
+    },
+    ["<C-x>"] = {
+      function() return vim.fn['codeium#Clear']() end,
+      "Codeium: Clear suggestion",
+      opts = { expr = true, silent = true },
+    },
+    ["<C-]>"] = {
+      function() return vim.fn['codeium#CycleCompletions'](1) end,
+      "Codeium: Next suggestion",
+      opts = { expr = true, silent = true },
+    },
+    ["<C-[>"] = {
+      function() return vim.fn['codeium#CycleCompletions'](-1) end,
+      "Codeium: Previous suggestion",
+      opts = { expr = true, silent = true },
+    },
+  },
+}
+
 return M

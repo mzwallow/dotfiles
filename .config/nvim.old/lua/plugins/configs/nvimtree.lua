@@ -1,11 +1,7 @@
-local options = {
-  filters = {
-    dotfiles = false,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
-  },
+require("nvim-tree").setup({
+  hijack_cursor = true,
   disable_netrw = true,
   hijack_netrw = true,
-  hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
   sync_root_with_cwd = true,
   update_focused_file = {
@@ -13,14 +9,8 @@ local options = {
     update_root = false,
   },
   view = {
-    adaptive_size = false,
-    side = "left",
     width = 30,
     preserve_window_proportions = true,
-  },
-  git = {
-    enable = false,
-    ignore = true,
   },
   filesystem_watchers = {
     enable = true,
@@ -32,21 +22,15 @@ local options = {
   },
   renderer = {
     root_folder_label = false,
-    highlight_git = false,
-    highlight_opened_files = "none",
+    highlight_git = true,
+    highlight_diagnostics = true,
+    highlight_modified = "icon",
 
     indent_markers = {
-      enable = false,
+      enable = true,
     },
 
     icons = {
-      show = {
-        file = true,
-        folder = true,
-        folder_arrow = true,
-        git = false,
-      },
-
       glyphs = {
         default = "󰈚",
         symlink = "",
@@ -72,6 +56,17 @@ local options = {
       },
     },
   },
-}
-
-return options
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  modified = {
+    enable = true,
+  },
+})

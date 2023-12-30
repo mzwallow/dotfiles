@@ -77,11 +77,14 @@ null_ls.setup({
     null_ls.builtins.diagnostics.trail_space,
 
     -- Go
-    null_ls.builtins.code_actions.gomodifytags,
     null_ls.builtins.diagnostics.golangci_lint,
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines,
+    null_ls.builtins.code_actions.gomodifytags,
+    null_ls.builtins.code_actions.impl,
+
+    -- SQL
 
     -- Python
     null_ls.builtins.formatting.autopep8,
