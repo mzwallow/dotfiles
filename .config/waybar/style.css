@@ -1,0 +1,131 @@
+@import "./theme.css";
+
+* {
+  border: none;
+  min-height: 0;
+
+  font-family: "JetBrainsMono Nerd Font", "FontAwesome", "Noto Sans CJK", monospace;
+  font-size: 12px;
+  color: @text;
+}
+
+@keyframes blink_red {
+  to {
+    background: @red;
+    color: @base;
+  }
+}
+
+.warning, .critical, .urgent {
+  animation-name: blink_red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+window#waybar {
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window > box {
+  margin: 8px;
+  margin-bottom: 0;
+}
+
+tooltip {
+  background: @base;
+}
+
+tooltip label {
+  color: @text;
+}
+
+#workspaces {
+  padding: 8px 5px;
+  border-radius: 50px;
+
+  background: @base;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 0 3px;
+  border-radius: 20px;
+
+  color: @text;
+}
+
+#workspaces button.empty {
+  color: @grey;
+}
+
+#workspaces button.visible {
+  color: @text;
+}
+
+#workspaces button.active {
+  padding: 0 20px;
+  background: @surface0;
+  color: @text;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+  background: @surface1;
+}
+
+#clock {
+  padding: 0 25px;
+
+  border-radius: 20px;
+  background: @base;
+}
+
+/* tray */
+#tray {
+  padding: 0 10px;
+  margin-right: 10px;
+  
+  border-radius: 20px;
+  background: @base;
+}
+
+#tray menu {
+  border-radius: 5px;
+
+  background: @base;
+}
+
+#language {
+  padding: 0 10px;
+  margin-right: 10px;
+  
+  border-radius: 20px;
+  background: @base;
+}
+
+#hardware {
+  padding: 0 20px;
+  
+  border-radius: 20px;
+  background: @base;
+}
+
+#backligh, 
+#battery,
+#cpu,
+#memory,
+#network,
+#wireplumber {
+  padding: 0 10px;
+}
+
+#battery.warning {
+  color: orange;
+}
+#battery.critical {
+  color: red;
+}

@@ -1,0 +1,16 @@
+@define-color base #191E21;
+
+@define-color text #D3CFCF;
+@define-color subtext0 #BCC5C8;
+@define-color subtext1 #A1ADB5;
+
+@define-color red #AE5257;
+@define-color grey #3D3E43;
+
+@define-color surface0 #252F34;
+@define-color surface1 #20272B;
+@define-color surface2 #3D3E43;
+
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
