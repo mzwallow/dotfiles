@@ -15,6 +15,7 @@ return { -- Highlight, edit, and navigate code
 
 				"sql",
 				"markdown", "markdown_inline", "yaml", "json", "proto", "regex",
+				"toml",
 
 				"comment",
 				"bash", "dockerfile",

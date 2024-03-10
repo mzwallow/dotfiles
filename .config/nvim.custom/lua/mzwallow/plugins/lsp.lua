@@ -124,6 +124,8 @@ return {
 				sqlls = {},
 				sqlfluff = {},
 
+				taplo = {},
+
 				-- clangd = {},
 				-- pyright = {},
 				-- rust_analyzer = {},
