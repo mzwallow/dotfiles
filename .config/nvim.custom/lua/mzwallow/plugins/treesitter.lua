@@ -31,7 +31,7 @@ return { -- Highlight, edit, and navigate code
 				"markdown", "markdown_inline", "yaml", "json", "json5", "jsonc",
 				"proto", "regex", "toml", "http", "make", "tsv",
 
-				"comment", "bash", "dockerfile", "hyprlang", "sshconfig"
+				"comment", "bash", "dockerfile", "hyprlang", "ssh_config"
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
