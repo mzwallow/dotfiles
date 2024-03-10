@@ -6,6 +6,7 @@ local plugins = {
 	require("mzwallow.plugins.editor"),
 	require("mzwallow.plugins.coding"),
 	require("mzwallow.plugins.lsp"),
+	require("mzwallow.plugins.treesitter"),
 
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",

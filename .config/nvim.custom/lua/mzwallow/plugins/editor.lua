@@ -7,6 +7,16 @@ return {
 			vim.cmd([[colorscheme catppuccin-mocha]])
 		end,
 	},
+	-- { -- Theme
+	-- 	"navarasu/onedark.nvim",
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		style = "darker",
+	-- 	},
+	-- 	init = function()
+	-- 		vim.cmd([[colorscheme onedark]])
+	-- 	end,
+	-- },
 
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 

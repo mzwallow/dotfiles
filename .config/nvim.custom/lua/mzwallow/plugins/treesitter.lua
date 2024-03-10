@@ -4,21 +4,34 @@ return { -- Highlight, edit, and navigate code
 	config = function()
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
+		vim.opt.foldmethod = "expr"
+		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.opt.foldlevel = 99
+		vim.opt.foldlevelstart = 1
+		vim.filetype.add({
+			pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+		})
+
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup({
 			-- stylua: ignore
 			ensure_installed = {
-				"vim", "vimdoc", "lua",
-				"go", "gomod", "gosum",
-				"html", "css", "javascript", "typescript", "tsx",
-				"python",
+				"vim", "vimdoc", "lua", "luadoc",
 
+				"html", "css", "javascript", "typescript", "tsx", "scss",
+				"svelte", "vue",
+
+				"go", "gomod", "gosum", "gotmpl", "gowork",
 				"sql",
-				"markdown", "markdown_inline", "yaml", "json", "proto", "regex",
-				"toml",
 
-				"comment",
-				"bash", "dockerfile",
+				"python", "dart",
+
+				"gitcommit", "diff", "git_rebase", "gitignore",
+
+				"markdown", "markdown_inline", "yaml", "json", "json5", "jsonc",
+				"proto", "regex", "toml", "http", "make", "tsv",
+
+				"comment", "bash", "dockerfile", "hyprlang", "sshconfig"
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
