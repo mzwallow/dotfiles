@@ -29,6 +29,10 @@ ln -sfn "$PWD/nvim.custom" "$HOME/.config/nvim"
 # Kitty
 ln -sfn "$PWD/kitty" "$HOME/.config/kitty"
 
+# [[ Theme ]]
+# Starship 🚀
+ln -sfn "$PWD/starship.toml" "$HOME/.config/starship.toml"
+
 
 ###############################################################################
 #------------------- APPLICATION LAUNCHER ------------------------------------#
