@@ -77,10 +77,6 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
--- NvimTree
---g.loaded_netrw = 1
---g.loaded_netrwPlugin = 1
-
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")

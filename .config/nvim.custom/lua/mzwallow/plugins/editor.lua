@@ -48,6 +48,41 @@ return {
 	},
 
 	{
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			-- Disable netrw
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+
+			require("nvim-tree").setup({
+				renderer = {
+					highlight_modified = "icon",
+					highlight_bookmarks = "icon",
+					indent_markers = { enable = true },
+					icons = {
+						web_devicons = {
+							folder = { enable = true },
+						},
+					},
+				},
+				update_focused_file = { enable = true },
+				git = { enable = true },
+				diagnostics = {
+					enable = true,
+					show_on_dirs = true,
+				},
+				modified = { enable = true },
+				filters = {
+					custom = { "^.git$" },
+				},
+			})
+
+			vim.keymap.set("n", "<Space>p", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvim tree" })
+		end,
+	},
+	{ "antosha417/nvim-lsp-file-operations", otps = {} },
+
+	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = function()
@@ -220,6 +255,8 @@ return {
 
 			-- Autopairs
 			require("mini.pairs").setup()
+
+			require("mini.splitjoin").setup()
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
