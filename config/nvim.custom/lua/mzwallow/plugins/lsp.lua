@@ -72,7 +72,7 @@ return {
 					--  For example, in C this would take you to the header
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					vim.keymap.set("i", "<C-S-i>", vim.lsp.buf.signature_help, { desc = "S[i]gnature help" })
+					vim.keymap.set("i", "<C-S-k>", vim.lsp.buf.signature_help, { desc = "S[i]gnature help" })
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -115,13 +115,24 @@ return {
 					settings = {
 						experimentalPostfixCompletions = true,
 						analyses = {
+							unusedvariable = true,
 							unusedparams = true,
 							shadow = true,
+							useany = true,
 						},
 						staticcheck = true,
+						gofumpt = true,
 					},
 				},
 				sqlls = {},
+
+				html = {},
+				cssls = {},
+				tsserver = {},
+				eslint = {},
+				volar = {},
+				svelte = {},
+				tailwindcss = {},
 
 				taplo = {},
 
@@ -208,6 +219,8 @@ return {
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
+		event = { "BufWritePost" },
+		cmd = { "ConformInfo" },
 		keys = {
 			{
 				-- Customize or remove this keymap to your liking
@@ -219,18 +232,22 @@ return {
 				desc = "[F]ormat buffer",
 			},
 		},
+		init = function()
+			-- If you want the formatexpr, here is the place to set it
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		end,
 		config = function()
 			local conform = require("conform")
 
 			conform.setup({
 				notify_on_error = false,
-				-- format_on_save = {
-				-- 	timeout_ms = 500,
-				-- 	lsp_fallback = true,
-				-- },
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_fallback = true,
+				},
 				formatters_by_ft = {
 					lua = { "stylua" },
-					go = { "goimports-reviser", "golines", "gofumpt" },
+					go = { "gofumpt", "goimports-reviser", "golines" },
 					-- Conform can also run multiple formatters sequentially
 					-- python = { "isort", "black" },
 					--
@@ -241,12 +258,12 @@ return {
 				},
 			})
 
-			conform.formatters.golines = {
-				args = { "--base-formatter=gofumpt", "--max-len=80", "--reformat-tags", "$FILENAME" },
-			}
-			conform.formatters.goimports_reviser = {
-				args = { "-rm-unused", "-format", "$FILENAME" },
-			}
+			-- conform.formatters.golines = {
+			-- 	args = { "--base-formatter=gofumpt", "--max-len=80", "--reformat-tags", "$FILENAME" },
+			-- }
+			-- conform.formatters.goimports_reviser = {
+			-- 	args = { "-rm-unused", "-format", "$FILENAME" },
+			-- }
 		end,
 	},
 
