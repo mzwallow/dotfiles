@@ -45,5 +45,15 @@ return { -- Highlight, edit, and navigate code
 		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
 		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config.gotmpl = {
+			install_info = {
+				url = "https://github.com/ngalaiko/tree-sitter-go-template",
+				files = { "src/parser.c" },
+			},
+			filetype = "gotmpl",
+			used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
+		}
 	end,
 }
