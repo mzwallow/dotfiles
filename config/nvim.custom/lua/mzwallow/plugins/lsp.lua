@@ -150,6 +150,7 @@ return {
 				volar = {},
 				svelte = {},
 				tailwindcss = {},
+				prettier = {},
 
 				taplo = {},
 
