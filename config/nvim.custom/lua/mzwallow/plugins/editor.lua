@@ -379,7 +379,7 @@ return {
 
 			require("mini.splitjoin").setup()
 
-			require("mini.animate").setup()
+			-- require("mini.animate").setup()
 
 			require("mini.hipatterns").setup({
 				highlighters = {
