@@ -141,6 +141,7 @@ return {
 						gofumpt = true,
 					},
 				},
+				zls = {},
 				sqlls = {},
 
 				html = {},
