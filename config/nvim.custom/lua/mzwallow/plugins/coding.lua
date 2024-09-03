@@ -62,6 +62,7 @@ return {
 					{ name = "nvim_lua" },
 					{ name = "path" },
 					-- { name = "cmdline" },
+					{ name = "lazydev", group_index = 0 },
 				},
 				snippet = {
 					expand = function(args)
