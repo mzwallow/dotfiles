@@ -158,6 +158,7 @@ return {
 				bashls = {},
 				jsonls = {},
 				yamlls = {},
+				hyprls = {},
 
 				-- clangd = {},
 				-- pyright = {},
@@ -311,7 +312,7 @@ return {
 		"ray-x/go.nvim",
 		config = function()
 			require("go").setup({
-				tag_options = '',
+				tag_options = "",
 			})
 		end,
 		event = { "CmdlineEnter" },
