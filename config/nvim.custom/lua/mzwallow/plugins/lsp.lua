@@ -146,7 +146,7 @@ return {
 
 				html = {},
 				cssls = {},
-				tsserver = {},
+				ts_ls = {},
 				eslint = {},
 				volar = {},
 				svelte = {},
@@ -156,6 +156,7 @@ return {
 				taplo = {},
 
 				bashls = {},
+				jsonls = {},
 				yamlls = {},
 
 				-- clangd = {},
