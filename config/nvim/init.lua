@@ -26,5 +26,5 @@ require("lazy").setup({ import = "mzwallow/plugins" }, {
     notify = false,
   },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
