@@ -109,6 +109,7 @@ local servers = {
   bashls = {},
   jsonls = {},
   yamlls = {},
+  spectral = {},
   hyprls = {},
 
   lua_ls = {
