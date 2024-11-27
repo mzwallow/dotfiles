@@ -4,5 +4,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
-  ft = "markdown",
+  opts = {
+    filetypes = { "markdown", "Avante" },
+  },
+  ft = { "markdown", "Avante" },
 }
