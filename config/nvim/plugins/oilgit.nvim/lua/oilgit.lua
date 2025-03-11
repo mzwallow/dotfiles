@@ -1,3 +1,5 @@
+-- TODO: Make it realtime
+
 local M = {}
 
 local oil = require("oil")
@@ -81,22 +83,19 @@ local on_exit = function(buffer, out)
 			for i = 1, vim.api.nvim_buf_line_count(buffer) do
 				local entry = oil.get_entry_on_line(buffer, i)
 				if entry and entry.name ~= ".." then
-					local name = entry.name
-					local status_codes = status[name]
+					local filename = entry.name
+					local status_detail = status[filename]
 
-					if status_codes then
+					if status_detail then
 						vim.api.nvim_buf_set_extmark(buffer, namespace, i - 1, 0, {
 							priority = 2,
-							sign_text = status_codes.index,
-							sign_hl_group = highlight_group(true, status_codes.index),
+							sign_text = status_detail.index,
+							sign_hl_group = highlight_group(true, status_detail.index),
 						})
 						vim.api.nvim_buf_set_extmark(buffer, namespace, i - 1, 0, {
 							priority = 1,
-							sign_text = status_codes.working_tree,
-							sign_hl_group = highlight_group(
-								false,
-								status_codes.working_tree
-							),
+							sign_text = status_detail.working_tree,
+							sign_hl_group = highlight_group(false, status_detail.working_tree),
 						})
 					end
 				end
@@ -106,7 +105,9 @@ local on_exit = function(buffer, out)
 end
 
 M.setup = function()
-	local augroup = vim.api.nvim_create_augroup("GitOilGroup", { clear = true })
+	print("oilgit reloaded")
+
+	local augroup = vim.api.nvim_create_augroup("OilGitGroup", { clear = true })
 
 	vim.api.nvim_create_autocmd("FileType", {
 		group = augroup,
@@ -126,8 +127,7 @@ M.setup = function()
 				end
 			})
 
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "BufWritePost" }, {
-				group = augroup,
+			vim.api.nvim_create_autocmd("BufEnter", {
 				buffer = buffer,
 				callback = function(callback_args)
 					local oil_url = callback_args.file
