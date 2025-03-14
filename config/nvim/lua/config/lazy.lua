@@ -40,6 +40,7 @@ require("lazy").setup({
 		},
 		-- import your plugins
 		{ import = "config.plugins" },
+		--[[
 		{
 			dir = "~/dotfiles/config/nvim/plugins/oilgit.nvim",
 			dependencies = "stevearc/oil.nvim",
@@ -48,6 +49,7 @@ require("lazy").setup({
 				vim.keymap.set("n", "<leader><leader>r", require("oilgit").setup)
 			end
 		},
+		]] --
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.

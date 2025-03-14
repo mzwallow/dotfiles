@@ -14,43 +14,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{
-				"folke/lazydev.nvim",
-				ft = "lua", -- only load on lua files
-				opts = {
-					library = {
-						-- See the configuration section for more details
-						-- Load luvit types when the `vim.uv` word is found
-						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-					},
-				},
-			},
-			{
-				"saghen/blink.cmp",
-				dependencies = "rafamadriz/friendly-snippets",
-				version = "*",
-				opts = {
-					sources = {
-						-- add lazydev to your completion providers
-						default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-						providers = {
-							lazydev = {
-								name = "LazyDev",
-								module = "lazydev.integrations.blink",
-								-- make lazydev completions top priority (see `:h blink.cmp`)
-								score_offset = 100,
-							},
-						},
-					},
-					signature = {
-						enabled = true,
-						trigger = {
-							show_on_keyword = true,
-							show_on_insert = false,
-						},
-					}
-				},
-			}
+			"saghen/blink.cmp",
 		},
 		config = function()
 			require("mason").setup()
@@ -60,11 +24,9 @@ return {
 				auto_update = true,
 			})
 
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
-					require("lspconfig")[server_name].setup({ capabilities = capabilities })
+					require("lspconfig")[server_name].setup({})
 				end
 			})
 
