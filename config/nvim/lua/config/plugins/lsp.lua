@@ -4,7 +4,11 @@ local servers = {
 }
 
 local tools = {
+	"stylua",
 	"golangci-lint",
+	"golines",
+	"goimports-reviser",
+	"gofumpt",
 }
 
 return {
@@ -27,7 +31,7 @@ return {
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
-				end
+				end,
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
