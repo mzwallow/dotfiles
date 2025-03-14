@@ -9,6 +9,7 @@ return {
 						require("formatter.filetypes.go").golines,
 						require("formatter.filetypes.go").gofumpt,
 					},
+					rust = { require("formatter.filetypes.rust").rustfmt },
 				},
 			})
 
