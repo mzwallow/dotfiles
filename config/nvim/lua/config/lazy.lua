@@ -28,6 +28,7 @@ require("lazy").setup({
 			"rebelot/kanagawa.nvim",
 			priority = 1000, -- make sure to load this before all the other start plugins
 			config = function()
+				---@diagnostic disable-next-line: missing-fields
 				require("kanagawa").setup({
 					theme = "dragon",
 					background = {
@@ -49,7 +50,8 @@ require("lazy").setup({
 				vim.keymap.set("n", "<leader><leader>r", require("oilgit").setup)
 			end
 		},
-		]] --
+		]]
+		--
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -60,4 +62,11 @@ require("lazy").setup({
 		enabled = false,
 		notify = false,
 	},
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	group = vim.api.nvim_create_augroup("autoupdate", { clear = true }),
+	callback = function()
+		require("lazy").update({ show = false })
+	end,
 })
