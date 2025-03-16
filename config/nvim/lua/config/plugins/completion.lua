@@ -22,7 +22,7 @@ return {
 			completion = {
 				menu = {
 					draw = {
-						treesitter = { "lsp" }
+						treesitter = { "lsp" },
 					},
 				},
 				documentation = { auto_show = true },
@@ -41,8 +41,8 @@ return {
 					},
 				},
 			},
-			signature = { enabled = true }
+			signature = { enabled = true },
 		},
-		opts_extend = { "sources.default" }
-	}
+		opts_extend = { "sources.default" },
+	},
 }

@@ -19,7 +19,6 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-
 --------------------------------------------------------------------------------
 -- [[ Keymaps ]]                                                               |
 --------------------------------------------------------------------------------
@@ -41,7 +40,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", "p", { desc = "Copy replaced text" })
 vim.keymap.set("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text" })
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR><esc>")
-
 
 --------------------------------------------------------------------------------
 -- [[ Miscs ]]                                                                 |
