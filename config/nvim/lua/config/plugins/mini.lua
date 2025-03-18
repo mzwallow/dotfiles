@@ -3,8 +3,11 @@ return {
 		"echasnovski/mini.nvim",
 		version = "*",
 		config = function()
-			local statusline = require("mini.statusline")
-			statusline.setup()
+			require("mini.comment").setup()
+			require("mini.pairs").setup()
+
+			require("mini.indentscope").setup()
+			require("mini.statusline").setup()
 		end,
 	},
 }
