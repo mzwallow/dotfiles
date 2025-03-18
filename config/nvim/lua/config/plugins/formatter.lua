@@ -10,6 +10,8 @@ return {
 						require("formatter.filetypes.go").gofumpt,
 					},
 					rust = { require("formatter.filetypes.rust").rustfmt },
+					yaml = { require("formatter.filetypes.yaml").prettierd },
+					json = { require("formatter.filetypes.json").prettierd },
 				},
 			})
 
