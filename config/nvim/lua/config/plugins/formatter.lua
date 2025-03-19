@@ -1,32 +1,30 @@
 return {
 	{
-		"mhartington/formatter.nvim",
+		"stevearc/conform.nvim",
 		config = function()
-			require("formatter").setup({
-				filetype = {
-					lua = { require("formatter.filetypes.lua").stylua },
-					go = {
-						require("formatter.filetypes.go").golines,
-						require("formatter.filetypes.go").gofumpt,
-					},
-					rust = { require("formatter.filetypes.rust").rustfmt },
-					yaml = { require("formatter.filetypes.yaml").prettierd },
-					json = { require("formatter.filetypes.json").prettierd },
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					go = { "goimports_reviser", "gofumpt" },
+					rust = { "rustfmt" },
+					yaml = { "prettierd" },
+					json = { "prettierd" },
 				},
+				["*"] = { "trim_whitespace" },
+				["_"] = { "trim_whitespace" },
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
-					local buffer = args.buf
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 					if not client then
 						return
 					end
 
-					vim.api.nvim_create_autocmd("BufWritePost", {
-						buffer = buffer,
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = args.buf,
 						callback = function()
-							vim.cmd("FormatWrite")
+							require("conform").format({ bufnr = args.buf })
 						end,
 					})
 				end,
