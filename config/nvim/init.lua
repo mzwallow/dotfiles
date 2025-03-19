@@ -19,6 +19,9 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
 --------------------------------------------------------------------------------
 -- [[ Keymaps ]]                                                               |
 --------------------------------------------------------------------------------
