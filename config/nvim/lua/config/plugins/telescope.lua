@@ -4,7 +4,10 @@ return {
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			-- Extensions
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			"nvim-telescope/telescope-ui-select.nvim",
+			"xiyaowong/telescope-emoji.nvim",
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -12,10 +15,13 @@ return {
 			telescope.setup({
 				extensions = {
 					fzf = {},
+					["ui-select"] = { require("telescope.themes").get_dropdown() },
 				},
 			})
 
 			telescope.load_extension("fzf")
+			telescope.load_extension("ui-select")
+			telescope.load_extension("emoji")
 
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
