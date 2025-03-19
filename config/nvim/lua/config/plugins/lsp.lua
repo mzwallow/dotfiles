@@ -66,8 +66,7 @@ return {
 											name = "openapi3_0",
 											description = "OpenAPI 3.0.X",
 											fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
-											url =
-											"https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
+											url = "https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
 										},
 									},
 								}),
@@ -104,7 +103,7 @@ return {
 					})
 
 					-- Highlight references word under cursor
-					if client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+					if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -131,7 +130,6 @@ return {
 			})
 
 			local telescope_builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<C-]>", telescope_builtin.lsp_definitions)
 			vim.keymap.set("n", "grr", telescope_builtin.lsp_references)
 			vim.keymap.set("n", "gri", telescope_builtin.lsp_implementations)
 		end,
