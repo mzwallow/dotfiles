@@ -44,6 +44,7 @@ return {
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
 				end,
+
 				["yamlls"] = function()
 					require("lspconfig").yamlls.setup({
 						settings = {
@@ -87,9 +88,10 @@ return {
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(args)
-					local c = vim.lsp.get_client_by_id(args.data.client_id)
-					if not c then
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if not client then
 						return
 					end
 
@@ -97,15 +99,41 @@ return {
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = args.buf,
 						callback = function()
-							vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
+							vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
 						end,
 					})
+
+					-- Highlight references word under cursor
+					if client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = args.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.document_highlight,
+						})
+
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = args.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.clear_references,
+						})
+
+						vim.api.nvim_create_autocmd("LspDetach", {
+							group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+							callback = function(args2)
+								vim.lsp.buf.clear_references()
+								vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = args2.buf })
+							end,
+						})
+					end
 				end,
 			})
 
 			local telescope_builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<C-]>", telescope_builtin.lsp_definitions)
 			vim.keymap.set("n", "grr", telescope_builtin.lsp_references)
+			vim.keymap.set("n", "gri", telescope_builtin.lsp_implementations)
 		end,
 	},
 }
