@@ -8,6 +8,7 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			"nvim-telescope/telescope-ui-select.nvim",
 			"xiyaowong/telescope-emoji.nvim",
+			"alduraibi/telescope-glyph.nvim",
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -22,6 +23,7 @@ return {
 			telescope.load_extension("fzf")
 			telescope.load_extension("ui-select")
 			telescope.load_extension("emoji")
+			telescope.load_extension("glyph")
 
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
