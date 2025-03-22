@@ -69,3 +69,4 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 eval "$($HOME/.local/bin/mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
