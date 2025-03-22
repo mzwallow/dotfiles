@@ -2,18 +2,25 @@ local servers = {
 	"lua_ls",
 	"gopls",
 	"rust_analyzer",
+	"pyright",
+
 	"yamlls",
 	"spectral",
 	"jsonls",
 }
 
 local tools = {
+	-- Lua
 	"stylua",
+	-- Go
 	"golangci-lint",
 	"golines",
 	"goimports",
 	"gci",
 	"gofumpt",
+	-- Python
+	"ruff",
+
 	"yamllint",
 	"jsonlint",
 	"prettierd",
@@ -67,7 +74,8 @@ return {
 											name = "openapi3_0",
 											description = "OpenAPI 3.0.X",
 											fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
-											url = "https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
+											url =
+											"https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
 										},
 									},
 								}),

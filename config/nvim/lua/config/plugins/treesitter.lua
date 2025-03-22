@@ -6,6 +6,7 @@ local parsers = {
 	"query",
 	"go",
 	"rust",
+	"python",
 	"sql",
 }
 
