@@ -7,6 +7,7 @@ return {
 					lua = { "stylua" },
 					go = { "goimports", "gci", "gofumpt" },
 					rust = { "rustfmt" },
+					python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 					yaml = { "prettierd" },
 					json = { "prettierd" },
 				},
