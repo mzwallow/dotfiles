@@ -6,6 +6,7 @@ return {
 				go = { "golangcilint" },
 				yaml = { "yamllint" },
 				json = { "jsonlint" },
+				sh = { "shellcheck" },
 			}
 
 			vim.api.nvim_create_autocmd("BufWritePost", {
