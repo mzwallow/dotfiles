@@ -7,6 +7,7 @@ local servers = {
 	"yamlls",
 	"spectral",
 	"jsonls",
+	"bashls",
 }
 
 local tools = {
@@ -24,6 +25,8 @@ local tools = {
 	"yamllint",
 	"jsonlint",
 	"prettierd",
+	-- Bash
+	"shellcheck",
 }
 
 local ensure_installed = servers
@@ -74,8 +77,7 @@ return {
 											name = "openapi3_0",
 											description = "OpenAPI 3.0.X",
 											fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
-											url =
-											"https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
+											url = "https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
 										},
 									},
 								}),
