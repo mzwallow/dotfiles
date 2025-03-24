@@ -124,7 +124,7 @@ M.setup = function()
 				group = augroup,
 				callback = function()
 					vim.b.oil_git_status_started = false
-				end
+				end,
 			})
 
 			vim.api.nvim_create_autocmd("BufEnter", {
@@ -135,18 +135,17 @@ M.setup = function()
 					local path = vim.uri_to_fname(file_url)
 
 					-- vim.schedule(function()
-					local out = vim.system(
-						{ "git", "status", ".", "--short", "--untracked", "--ignored" },
-						{ cwd = path, text = true }
-					):wait()
+					local out = vim
+							.system({ "git", "status", ".", "--short", "--untracked", "--ignored" }, { cwd = path, text = true })
+							:wait()
 
 					on_exit(buffer, out)
 					-- end)
-				end
+				end,
 			})
 
 			set_highlight_groups()
-		end
+		end,
 	})
 end
 

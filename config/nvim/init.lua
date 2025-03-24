@@ -7,18 +7,36 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 
+-- Indentaion
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = -1
+vim.opt.smartindent = true
+-- Sets how neovim will display certain whitespace in the editor.
+vim.opt.list = true
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.termguicolors = true
-vim.opt.clipboard = "unnamedplus"
+
+vim.opt.showmode = false -- Don't show the mode, since it's already in status line
+vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
+
+-- Split window in bottom right
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Set completeopt to have a better completion experience
+vim.opt.completeopt = "menuone,noselect"
+vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim
+
 vim.opt.undofile = true
-vim.opt.inccommand = "split"
+-- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
+-- Interval for writing swap file to disk, also used by gitsigns
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 

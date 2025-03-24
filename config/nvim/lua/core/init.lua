@@ -1,4 +1,3 @@
-
 local opt = vim.opt
 local g = vim.g
 
@@ -76,11 +75,11 @@ opt.whichwrap:append("<>[]hl")
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -------------------------------------------------------------------------------
@@ -91,14 +90,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 ---@param func string | function
 ---@param desc string
 local nmap = function(keys, func, desc)
-  vim.keymap.set("n", keys, func, { desc = desc })
+	vim.keymap.set("n", keys, func, { desc = desc })
 end
 
 ---@param keys string
 ---@param func string | function
 ---@param desc string
 local vmap = function(keys, func, desc)
-  vim.keymap.set("v", keys, func, { desc = desc })
+	vim.keymap.set("v", keys, func, { desc = desc })
 end
 
 -- General keymaps

@@ -4,7 +4,7 @@ local state = {
 	floating = {
 		buf = -1,
 		win = -1,
-	}
+	},
 }
 
 ---@class opts
