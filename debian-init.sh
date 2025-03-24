@@ -15,7 +15,9 @@ mkdir -p "$HOME/.config"
 
 echo "Installing tmux..."
 sudo apt-get install -y tmux && \
-    ln -sfn "$PWD/config/tmux" "$HOME/.config/tmux"
+    ln -sfn "$PWD/config/tmux" "$HOME/.config/tmux" && \
+    rm -rf "$PWD/config/tmux/plugins/tpm" && \
+    git clone https://github.com/tmux-plugins/tpm "$PWD/config/tmux/plugins/tpm"
 
 echo "Installing mise..."
 curl https://mise.run | sh && \
