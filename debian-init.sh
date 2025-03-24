@@ -15,12 +15,14 @@ mkdir -p "$HOME/.config"
 
 echo "Installing tmux..."
 sudo apt-get install -y tmux && \
+    rm -rf "$HOME/.config/tmux" && \
     ln -sfn "$PWD/config/tmux" "$HOME/.config/tmux" && \
     rm -rf "$PWD/config/tmux/plugins/tpm" && \
     git clone https://github.com/tmux-plugins/tpm "$PWD/config/tmux/plugins/tpm"
 
 echo "Installing mise..."
 curl https://mise.run | sh && \
+    rm -rf "$HOME/.config/mise" && \
     ln -sfn "$PWD"/config/mise "$HOME"/.config/mise && \
     mise install
 
@@ -41,4 +43,5 @@ sudo mkdir -p /opt/nvim
 sudo curl -Lo /opt/nvim/nvim "https://github.com/neovim/neovim/releases/download/nightly/nvim-linux-x86_64.appimage" && \
     sudo chown "$USER":"$USER" /opt/nvim/nvim && \
     sudo chmod u+x /opt/nvim/nvim && \
+    rm -rf "$HOME/.config/nvim" && \
     ln -sfn "$PWD/config/nvim" "$HOME/.config/nvim"
