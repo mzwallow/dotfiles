@@ -21,6 +21,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.termguicolors = true
 
+vim.opt.laststatus = 3
 vim.opt.showmode = false -- Don't show the mode, since it's already in status line
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 

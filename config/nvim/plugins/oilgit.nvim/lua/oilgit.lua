@@ -136,8 +136,8 @@ M.setup = function()
 
 					-- vim.schedule(function()
 					local out = vim
-							.system({ "git", "status", ".", "--short", "--untracked", "--ignored" }, { cwd = path, text = true })
-							:wait()
+						.system({ "git", "status", ".", "--short", "--untracked", "--ignored" }, { cwd = path, text = true })
+						:wait()
 
 					on_exit(buffer, out)
 					-- end)
