@@ -13,7 +13,16 @@ timedatectl set-timezone "Asia/Bangkok"
 timedatectl set-ntp true
 
 # TODO: Dynamically partition the disks
-# ===
+# ====
+# List all available devices
+DISKS=()
+while IFS='' read -r value; do
+    DISKS+=("$value")
+done <<<"$(fdisk -l | grep "Disk /dev/*")"
+
+for i in "${DISKS[@]}"; do
+    fdisk -l "$(echo "$i" | sed -E "s/.*(\/dev\/\S+):.*/\1/")"
+done
 
 # ====
 echo "Formatting the partitions"
