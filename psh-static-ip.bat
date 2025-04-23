@@ -4,7 +4,7 @@ $Gateway = "192.168.1.1"
 $Dns = "192.168.1.250"
 $IPType = "IPv4"
 # Retrieve the network adapter that you want to configure
-$adapter = Get-NetAdapter | ? {$_.Status -eq "up"}
+$adapter = Get-NetAdapter | ? {$_.Name -eq "Wi-Fi"}
 # Remove any existing IP, gateway from our ipv4 adapter
 If (($adapter | Get-NetIPConfiguration).IPv4Address.IPAddress) {
  $adapter | Remove-NetIPAddress -AddressFamily $IPType -Confirm:$false
