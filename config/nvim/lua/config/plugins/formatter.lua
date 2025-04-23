@@ -8,11 +8,35 @@ return {
 					go = { "goimports", "gci", "gofumpt" },
 					rust = { "rustfmt" },
 					python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
+					typescript = { "prettierd" },
 					yaml = { "prettierd" },
 					json = { "prettierd" },
+					jsonc = { "prettierd" },
+					["*"] = { "trim_whitespace" },
+					["_"] = { "trim_whitespace" },
 				},
-				["*"] = { "trim_whitespace" },
-				["_"] = { "trim_whitespace" },
+				formatters = {
+					gci = {
+						meta = {
+							url = "https://github.com/daixiang0/gci",
+							description = "GCI, a tool that controls Go package import order and makes it always deterministic.",
+						},
+						command = "gci",
+						args = {
+							"write",
+							"--skip-generated",
+							"--skip-vendor",
+							"-s",
+							"standard",
+							"-s",
+							"default",
+							"-s",
+							"localmodule",
+							"$FILENAME",
+						},
+						stdin = false,
+					},
+				},
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {

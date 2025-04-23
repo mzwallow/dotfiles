@@ -1,4 +1,4 @@
 [tools]
-node = 'lts'
-go = 'latest'
-zig = 'latest'
+node = "lts"
+go = "latest"
+zig = "latest"

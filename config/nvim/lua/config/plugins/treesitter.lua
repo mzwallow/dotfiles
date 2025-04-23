@@ -9,6 +9,7 @@ local parsers = {
 	"python",
 	"sql",
 	"bash",
+	"yaml",
 }
 
 return {
