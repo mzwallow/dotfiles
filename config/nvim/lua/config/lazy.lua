@@ -41,17 +41,10 @@ require("lazy").setup({
 		},
 		-- import your plugins
 		{ import = "config.plugins" },
-		--[[
-		{
-			dir = "~/dotfiles/config/nvim/plugins/oilgit.nvim",
-			dependencies = "stevearc/oil.nvim",
-			config = function()
-				require("oilgit").setup()
-				vim.keymap.set("n", "<leader><leader>r", require("oilgit").setup)
-			end
-		},
-		]]
-		--
+	},
+	defaults = {
+		lazy = false,
+		version = "*",
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -62,11 +55,4 @@ require("lazy").setup({
 		enabled = false,
 		notify = false,
 	},
-})
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	group = vim.api.nvim_create_augroup("autoupdate", { clear = true }),
-	callback = function()
-		require("lazy").update({ show = false })
-	end,
 })

@@ -43,7 +43,24 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"saghen/blink.cmp",
+			{
+				"saghen/blink.cmp",
+				dependencies = {
+					"Kaiser-Yang/blink-cmp-avante",
+				},
+				opts = {
+					sources = {
+						default = { "avante", "lsp", "path", "snippets", "buffer" },
+						providers = {
+							avante = {
+								module = "blink-cmp-avante",
+								name = "Avante",
+								opts = {},
+							},
+						},
+					},
+				},
+			},
 			"b0o/schemastore.nvim",
 		},
 		config = function()
