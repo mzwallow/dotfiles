@@ -46,6 +46,8 @@ fi
 export PATH="$PATH:$HOME/Android/Sdk/cmdline-tools/latest/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:$HOME/Android/Sdk/emulator"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # === Start: Mise ===
 export MISE_SHELL=zsh
@@ -116,3 +118,8 @@ alias zshreload="source ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/mzwallow/.dart-cli-completion/zsh-config.zsh ]] && . /home/mzwallow/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
