@@ -24,7 +24,6 @@ local tools = {
 	"ruff",
 	-- TS & JS
 	"eslint_d",
-	"postgrestools",
 
 	"yamllint",
 	"jsonlint",
@@ -117,8 +116,6 @@ return {
 					})
 				end,
 			})
-
-			require("lspconfig").postgres_lsp.setup({})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
