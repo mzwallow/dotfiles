@@ -39,8 +39,8 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			{
 				"saghen/blink.cmp",
@@ -48,6 +48,7 @@ return {
 					"Kaiser-Yang/blink-cmp-avante",
 				},
 				opts = {
+					keymap = { preset = "default" },
 					sources = {
 						default = { "avante", "lsp", "path", "snippets", "buffer" },
 						providers = {
@@ -71,50 +72,42 @@ return {
 				auto_update = true,
 			})
 
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						format = {
+							enable = true,
+							bracketSpacing = true,
+						},
+						validate = true,
+						hover = true,
+						completion = true,
+						schemaStore = {
+							enable = false,
+							url = "",
+						},
+						schemas = require("schemastore").yaml.schemas({
+							extra = {
+								{
+									name = "openapi3_0",
+									description = "OpenAPI 3.0.X",
+									fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
+									url =
+									"https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
+								},
+							},
+						}),
+					},
+				},
+			})
 
-				["yamlls"] = function()
-					require("lspconfig").yamlls.setup({
-						settings = {
-							yaml = {
-								format = {
-									enable = true,
-									bracketSpacing = true,
-								},
-								validate = true,
-								hover = true,
-								completion = true,
-								schemaStore = {
-									enable = false,
-									url = "",
-								},
-								schemas = require("schemastore").yaml.schemas({
-									extra = {
-										{
-											name = "openapi3_0",
-											description = "OpenAPI 3.0.X",
-											fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
-											url = "https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
-										},
-									},
-								}),
-							},
-						},
-					})
-				end,
-				["jsonls"] = function()
-					require("lspconfig").jsonls.setup({
-						settings = {
-							json = {
-								schemas = require("schemastore").json.schemas(),
-								validate = { enable = true },
-							},
-						},
-					})
-				end,
+			vim.lsp.config("jsonls", {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
+				},
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {

@@ -10,6 +10,8 @@ local parsers = {
 	"sql",
 	"bash",
 	"yaml",
+	"markdown",
+	"markdown_inline",
 }
 
 return {
