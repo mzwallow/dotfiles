@@ -42,25 +42,6 @@ return {
 			"mason-org/mason.nvim",
 			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{
-				"saghen/blink.cmp",
-				dependencies = {
-					"Kaiser-Yang/blink-cmp-avante",
-				},
-				opts = {
-					keymap = { preset = "default" },
-					sources = {
-						default = { "avante", "lsp", "path", "snippets", "buffer" },
-						providers = {
-							avante = {
-								module = "blink-cmp-avante",
-								name = "Avante",
-								opts = {},
-							},
-						},
-					},
-				},
-			},
 			"b0o/schemastore.nvim",
 		},
 		config = function()
@@ -92,8 +73,7 @@ return {
 									name = "openapi3_0",
 									description = "OpenAPI 3.0.X",
 									fileMatch = { "**/*.openapi3_0.yml", "**/*.openapi3_0.yaml" },
-									url =
-									"https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
+									url = "https://raw.githubusercontent.com/stoplightio/spectral/refs/heads/develop/packages/rulesets/src/oas/schemas/oas/v3.0.json",
 								},
 							},
 						}),
