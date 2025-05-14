@@ -8,7 +8,7 @@ return {
 			provider = "ollama",
 			ollama = {
 				endpoint = "http://127.0.0.1:11434",
-				model = "qwen3:8b",
+				model = "qwen3:4b",
 				timeout = 30000, -- Timeout in milliseconds
 				options = {
 					temperature = 0,

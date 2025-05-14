@@ -24,9 +24,10 @@ return {
 				},
 			},
 			"Kaiser-Yang/blink-cmp-avante",
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 			"moyiz/blink-emoji.nvim",
 		},
-		version = "*",
+		version = "1.*",
 		---@module "blink.cmp"
 		---@type blink.cmp.Config
 		opts = {
@@ -53,6 +54,7 @@ return {
 				per_filetype = {
 					lua = { inherit_defaults = true, "lazydev" },
 					avante = { inherit_defaults = true, "avante" },
+					sql = { "snippets", "dadbod", "buffer" },
 				},
 				providers = {
 					lazydev = {
@@ -66,15 +68,16 @@ return {
 						name = "Avante",
 						opts = {},
 					},
+					dadbod = { module = "vim_dadbod_completion.blink", name = "Dadbod" },
 					emoji = {
 						module = "blink-emoji",
 						name = "Emoji",
-						score_offset = 15, -- Tune by preference
+						score_offset = 15,  -- Tune by preference
 						opts = { insert = true }, -- Insert emoji (default) or complete its name
 						should_show_items = function()
 							return vim.tbl_contains(
-								-- Enable emoji completion only for git commits and markdown.
-								-- By default, enabled for all file-types.
+							-- Enable emoji completion only for git commits and markdown.
+							-- By default, enabled for all file-types.
 								{ "gitcommit", "markdown" },
 								vim.o.filetype
 							)
