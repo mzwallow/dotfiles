@@ -4,6 +4,8 @@ local servers = {
 	"rust_analyzer",
 	"pyright",
 	"ts_ls",
+	-- Terraform
+	"terraformls",
 
 	"yamlls",
 	"spectral",
@@ -24,6 +26,9 @@ local tools = {
 	"ruff",
 	-- TS & JS
 	"eslint_d",
+	-- Terraform
+	"terraform",
+	"tflint",
 
 	"yamllint",
 	"jsonlint",

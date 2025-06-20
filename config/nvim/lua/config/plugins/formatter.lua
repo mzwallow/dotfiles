@@ -9,6 +9,8 @@ return {
 					rust = { "rustfmt" },
 					python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 					typescript = { "prettierd" },
+					tf = { "terraform_fmt" },
+					hcl = { "packer_fmt", "terragrunt_hclfmt" },
 					yaml = { "prettierd" },
 					json = { "prettierd" },
 					jsonc = { "prettierd" },
@@ -35,6 +37,14 @@ return {
 							"$FILENAME",
 						},
 						stdin = false,
+					},
+					packer_fmt = {
+						meta = {
+							url = "https://developer.hashicorp.com/packer/docs/commands/fmt",
+							description = "The packer fmt Packer command is used to format HCL2 configuration files to a canonical format and style.",
+						},
+						command = "packer",
+						args = { "fmt", "-", "write=true" },
 					},
 				},
 			})
