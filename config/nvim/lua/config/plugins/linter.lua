@@ -7,6 +7,7 @@ return {
 			lint.linters_by_ft = {
 				go = { "golangcilint" },
 				typescript = { "eslint_d" },
+				c = { "cpplint" },
 				tf = { "tflint", "terraform_validate" },
 				js = { "eslint_d" },
 				yaml = { "yamllint" },

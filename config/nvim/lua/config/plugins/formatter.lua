@@ -9,6 +9,8 @@ return {
 					rust = { "rustfmt" },
 					python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 					typescript = { "prettierd" },
+					c = { "clang-format" },
+					asm = { "asmfmt" },
 					tf = { "terraform_fmt" },
 					hcl = { "packer_fmt", "terragrunt_hclfmt" },
 					yaml = { "prettierd" },
