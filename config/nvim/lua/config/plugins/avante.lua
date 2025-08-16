@@ -6,7 +6,7 @@ return {
 		---@type avante.Config
 		opts = {
 			mode = "agentic",
-			provider = "ollama",
+			provider = "claude",
 			providers = {
 				ollama = {
 					endpoint = "http://127.0.0.1:11434",
