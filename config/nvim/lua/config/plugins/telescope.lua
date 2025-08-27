@@ -14,6 +14,9 @@ return {
 			local telescope = require("telescope")
 
 			telescope.setup({
+				defaults = {
+					file_ignore_patterns = { "node_modules" },
+				},
 				extensions = {
 					fzf = {},
 					["ui-select"] = { require("telescope.themes").get_dropdown() },

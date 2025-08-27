@@ -10,7 +10,9 @@ local servers = {
 	-- Assembly
 	"asm-lsp",
 	-- Web
+	"svelte",
 	"vue_ls",
+	"vtsls",
 	"cssls",
 	"tailwindcss",
 
