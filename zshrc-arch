@@ -48,8 +48,11 @@ export PATH="$PATH:$HOME/Android/Sdk/cmdline-tools/latest/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:$HOME/Android/Sdk/emulator"
 export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:/opt/k6-v1.1.0"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export CUDA_VISIBLE_DEVICES=$(nvidia-smi --query-gpu=memory.free,index --format=csv,nounits,noheader | sort -nr | head -1 | awk '{ print $NF }')
+export CLOUDSDK_PYTHON=$(which python3)
+export PICO_SDK_PATH="$HOME/Development/pico2w/pico-sdk"
 
 # === Start: Mise ===
 export MISE_SHELL=zsh
@@ -118,6 +121,8 @@ fi
 alias zshconfig="$EDITOR ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias pac="sudo pacman"
+alias picotool="$HOME/Development/pico2w/picotool/build/picotool"
 
 eval "$(starship init zsh)"
 
@@ -128,3 +133,5 @@ eval "$(starship init zsh)"
 # uv
 eval "$(uv generate-shell-completion zsh)"
 ## [/Completion]
+export PATH="$PATH:/home/mzwallow/Development/ai/unsloth-llm/tmp/ngc-cli"
+export LOCAL_NIM_CACHE=~/.cache/nim
