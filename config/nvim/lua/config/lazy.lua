@@ -40,7 +40,7 @@ require("lazy").setup({
 			end,
 		},
 		-- import your plugins
-		{ import = "config.plugins" },
+		{ import = "plugins" },
 	},
 	defaults = {
 		lazy = false,

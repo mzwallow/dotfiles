@@ -12,6 +12,7 @@ local parsers = {
 	"yaml",
 	"markdown",
 	"markdown_inline",
+	"wgsl",
 }
 
 return {

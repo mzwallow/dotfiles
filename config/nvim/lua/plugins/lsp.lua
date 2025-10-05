@@ -12,9 +12,10 @@ local servers = {
 	-- Web
 	"svelte",
 	"vue_ls",
-	"vtsls",
+	-- "vtsls",
 	"cssls",
 	"tailwindcss",
+	"wgsl_analyzer",
 
 	"yamlls",
 	"spectral",
@@ -35,6 +36,7 @@ local tools = {
 	"ruff",
 	-- TS & JS
 	"eslint_d",
+	"oxlint",
 	-- C/C++
 	"cpptools",
 	"cortex-debug",
@@ -58,16 +60,21 @@ vim.list_extend(ensure_installed, tools)
 
 return {
 	{
-		"neovim/nvim-lspconfig",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		dependencies = {
-			"mason-org/mason.nvim",
-			"mason-org/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{
+				"mason-org/mason-lspconfig.nvim",
+				opts = {},
+				dependencies = {
+					{ "mason-org/mason.nvim", opts = {} },
+					"neovim/nvim-lspconfig",
+				},
+			},
 			"b0o/schemastore.nvim",
 		},
 		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup()
+			-- require("mason").setup()
+			-- require("mason-lspconfig").setup()
 
 			require("mason-tool-installer").setup({
 				ensure_installed = ensure_installed,
@@ -112,43 +119,43 @@ return {
 			})
 
 			-- Vue
-			local vue_language_server_path = vim.fn.expand("$MASON/packages")
-				.. "/vue-language-server"
-				.. "/node_modules/@vue/language-server"
-			local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-			local vue_plugin = {
-				name = "@vue/typescript-plugin",
-				location = vue_language_server_path,
-				languages = { "vue" },
-				configNamespace = "typescript",
-			}
-			local vtsls_config = {
-				settings = {
-					vtsls = {
-						tsserver = {
-							globalPlugins = {
-								vue_plugin,
-							},
-						},
-					},
-				},
-				filetypes = tsserver_filetypes,
-			}
-			local vue_ls_config = {}
-			vim.lsp.config("vtsls", vtsls_config)
-			vim.lsp.config("vue_ls", vue_ls_config)
-			vim.lsp.enable({ "ts_ls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
-
-			-- TypeScript
-			local ts_ls_config = {
-				init_options = {
-					plugins = {
-						vue_plugin,
-					},
-				},
-				filetypes = tsserver_filetypes,
-			}
-			vim.lsp.config("ts_ls", ts_ls_config)
+			-- local vue_language_server_path = vim.fn.expand("$MASON/packages")
+			-- 	.. "/vue-language-server"
+			-- 	.. "/node_modules/@vue/language-server"
+			-- local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+			-- local vue_plugin = {
+			-- 	name = "@vue/typescript-plugin",
+			-- 	location = vue_language_server_path,
+			-- 	languages = { "vue" },
+			-- 	configNamespace = "typescript",
+			-- }
+			-- local vtsls_config = {
+			-- 	settings = {
+			-- 		vtsls = {
+			-- 			tsserver = {
+			-- 				globalPlugins = {
+			-- 					vue_plugin,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	filetypes = tsserver_filetypes,
+			-- }
+			-- local vue_ls_config = {}
+			-- vim.lsp.config("vtsls", vtsls_config)
+			-- vim.lsp.config("vue_ls", vue_ls_config)
+			-- vim.lsp.enable({ "ts_ls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+			--
+			-- -- TypeScript
+			-- local ts_ls_config = {
+			-- 	init_options = {
+			-- 		plugins = {
+			-- 			vue_plugin,
+			-- 		},
+			-- 	},
+			-- 	filetypes = tsserver_filetypes,
+			-- }
+			-- vim.lsp.config("ts_ls", ts_ls_config)
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
@@ -157,14 +164,6 @@ return {
 					if not client then
 						return
 					end
-
-					-- Format the current buffer on save
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = args.buf,
-						callback = function()
-							vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-						end,
-					})
 
 					-- Highlight references word under cursor
 					if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then

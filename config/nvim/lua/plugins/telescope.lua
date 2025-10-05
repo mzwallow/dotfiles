@@ -12,10 +12,16 @@ return {
 		},
 		config = function()
 			local telescope = require("telescope")
+			telescope.load_extension("lazygit")
 
 			telescope.setup({
 				defaults = {
 					file_ignore_patterns = { "node_modules" },
+				},
+				pickers = {
+					find_files = {
+						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					},
 				},
 				extensions = {
 					fzf = {},
