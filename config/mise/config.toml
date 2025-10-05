@@ -3,6 +3,8 @@ node = "lts"
 go = "latest"
 zig = "latest"
 bun = "latest"
+gemini-cli = "latest"
+claude-code = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
