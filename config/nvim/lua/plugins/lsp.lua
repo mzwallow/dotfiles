@@ -1,7 +1,6 @@
 local servers = {
 	"lua_ls",
 	"gopls",
-	"rust_analyzer",
 	"pyright",
 	"ts_ls",
 	"clangd",
@@ -28,10 +27,12 @@ local tools = {
 	"stylua",
 	-- Go
 	"golangci-lint",
+	"revive",
 	"golines",
-	"goimports",
+	"goimports-reviser",
 	"gci",
 	"gofumpt",
+	"djlint",
 	-- Python
 	"ruff",
 	-- TS & JS

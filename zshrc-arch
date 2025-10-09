@@ -49,6 +49,7 @@ export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:$HOME/Android/Sdk/emulator"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:/opt/k6-v1.1.0"
+export PATH="$PATH:$HOME/fvm/default/bin"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export CUDA_VISIBLE_DEVICES=$(nvidia-smi --query-gpu=memory.free,index --format=csv,nounits,noheader | sort -nr | head -1 | awk '{ print $NF }')
 export CLOUDSDK_PYTHON=$(which python3)

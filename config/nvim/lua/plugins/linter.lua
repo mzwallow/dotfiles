@@ -5,15 +5,15 @@ return {
 			local lint = require("lint")
 
 			lint.linters_by_ft = {
-				go = { "golangcilint" },
+				go = { "golangcilint" }, -- revive
 				typescript = { "oxlint" },
 				js = { "oxlint" },
 				c = { "cpplint" },
-				tf = { "tflint", "terraform_validate" },
 				yaml = { "yamllint" },
 				json = { "jsonlint" },
 				jsonc = { "jsonlint" },
 				sh = { "shellcheck" },
+				tf = { "tflint", "terraform_validate" },
 			}
 
 			vim.api.nvim_create_autocmd("BufWritePost", {
