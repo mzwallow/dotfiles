@@ -5,6 +5,7 @@ zig = "latest"
 bun = "latest"
 gemini-cli = "latest"
 claude-code = "latest"
+uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
