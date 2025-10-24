@@ -23,6 +23,7 @@ return {
 					asm = { "asmfmt" },
 					tf = { "terraform_fmt" },
 					hcl = { "packer_fmt", "terragrunt_hclfmt" },
+					toml = { "tombi" },
 					yaml = { "prettierd" },
 					json = { "prettierd" },
 					jsonc = { "prettierd" },

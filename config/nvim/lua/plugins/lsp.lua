@@ -9,17 +9,19 @@ local servers = {
 	-- Assembly
 	"asm-lsp",
 	-- Web
+	"html",
+	"cssls",
+	"tailwindcss",
 	"svelte",
 	"vue_ls",
 	-- "vtsls",
-	"cssls",
-	"tailwindcss",
 	"wgsl_analyzer",
 
 	"yamlls",
 	"spectral",
 	"jsonls",
 	"bashls",
+	"tombi",
 }
 
 local tools = {
@@ -36,6 +38,8 @@ local tools = {
 	-- Python
 	"ruff",
 	-- TS & JS
+	"htmlhint",
+	"stylelint",
 	"eslint_d",
 	"oxlint",
 	-- C/C++
