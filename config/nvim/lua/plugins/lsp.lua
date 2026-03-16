@@ -4,6 +4,7 @@ local servers = {
 	"pyright",
 	"ts_ls",
 	"clangd",
+	-- "zls",
 	-- Terraform
 	"terraformls",
 	-- Assembly
@@ -22,6 +23,8 @@ local servers = {
 	"jsonls",
 	"bashls",
 	"tombi",
+
+	"hyprls",
 }
 
 local tools = {

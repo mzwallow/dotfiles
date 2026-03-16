@@ -3,21 +3,13 @@
 		"layer": "top",
 		"output": [
 			// "eDP-1",
-			"HDMI-A-1",
+			// "HDMI-A-1",
 			"DP-1",
 		],
 		"position": "top",
-		"modules-left": [
-			"hyprland/workspaces"
-		],
-		"modules-center": [
-			"clock"
-		],
-		"modules-right": [
-			"tray",
-			"hyprland/language",
-			"group/hardware"
-		],
+		"modules-left": ["hyprland/workspaces"],
+		"modules-center": ["clock"],
+		"modules-right": ["tray", "hyprland/language", "group/hardware"],
 		"hyprland/workspaces": {
 			"format": "{icon}",
 			"format-icons": {
@@ -26,11 +18,16 @@
 				"3": "三",
 				"4": "四",
 				"5": "五",
-				"6": "一",
-				"7": "二",
-				"8": "三",
-				"9": "四",
-				"10": "五",
+				"6": "六",
+				"7": "七",
+				"8": "八",
+				"9": "九",
+				"10": "十",
+				// "6": "一",
+				// "7": "二",
+				// "8": "三",
+				// "9": "四",
+				// "10": "五",
 				"11": "一",
 				"12": "二",
 				"13": "三",
@@ -46,23 +43,24 @@
 				"default": "",
 			},
 			"persistent-workspaces": {
-				// "*": 5
+				"*": 5,
 				// "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 				// "HDMI-A-1": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-				"HDMI-A-1": [
-					1,
-					2,
-					3,
-					4,
-					5
-				],
-				"DP-1": [
-					6,
-					7,
-					8,
-					9,
-					10
-				],
+				// "DP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				// "HDMI-A-1": [
+				// 	1,
+				// 	2,
+				// 	3,
+				// 	4,
+				// 	5
+				// ],
+				// "DP-1": [
+				// 	6,
+				// 	7,
+				// 	8,
+				// 	9,
+				// 	10
+				// ],
 			},
 		},
 		"clock": {
@@ -116,11 +114,7 @@
 			"format": "{icon} {volume}%",
 			"format-muted": "",
 			"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-			"format-icons": [
-				"",
-				"",
-				""
-			],
+			"format-icons": ["", "", ""],
 		},
 		"backlight": {
 			"device": "intel_backlight",
@@ -164,18 +158,9 @@
 			"format-ethernet": "{icon} ",
 			"format-disconnected": "{icon} ",
 			"format-icons": {
-				"wifi": [
-					"󰤟",
-					"󰤢",
-					"󰤢",
-					"󰤨"
-				],
-				"ethernet": [
-					"󰈀"
-				],
-				"disconnected": [
-					"󰤭"
-				],
+				"wifi": ["󰤟", "󰤢", "󰤢", "󰤨"],
+				"ethernet": ["󰈀"],
+				"disconnected": ["󰤭"],
 			},
 			"tooltip-format": "{ifname} {ipaddr}/{cidr}",
 		},
@@ -185,13 +170,7 @@
 				"critical": 15,
 			},
 			"format": "{icon}  {capacity}%",
-			"format-icons": [
-				"",
-				"",
-				"",
-				"",
-				""
-			],
+			"format-icons": ["", "", "", "", ""],
 			"tooltip-format": "P:{power} {timeTo}",
 		},
 	},

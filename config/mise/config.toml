@@ -1,10 +1,8 @@
 [tools]
 node = "lts"
 go = "latest"
-zig = "latest"
 bun = "latest"
 gemini-cli = "latest"
-claude-code = "latest"
 uv = "latest"
 
 [settings]

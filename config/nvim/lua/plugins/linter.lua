@@ -9,6 +9,7 @@ return {
 				typescript = { "oxlint" },
 				js = { "oxlint" },
 				c = { "cpplint" },
+				zig = { "zig" }, -- zlint
 				yaml = { "yamllint" },
 				json = { "jsonlint" },
 				jsonc = { "jsonlint" },
