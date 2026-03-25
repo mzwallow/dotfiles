@@ -1,4 +1,4 @@
-local lsp = {
+local servers = {
   "lua_ls",
   "clangd",
   "jsonls",
@@ -8,6 +8,7 @@ local tools = {
   "stylua",
   "clang-format",
   "cpplint",
+  "nixfmt",
   "jsonlint",
   "yamllint",
   "prettierd",
@@ -23,7 +24,7 @@ return {
     ---@module "mason-lspconfig"
     ---@type MasonLspconfigSettings
     opts = {
-      automatic_enable = lsp,
+      automatic_enable = servers,
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -34,7 +35,7 @@ return {
   config = function()
     ---@module "mason-tool-installer"
     require("mason-tool-installer").setup({
-      ensure_installed = vim.tbl_deep_extend("force", lsp, tools),
+      ensure_installed = vim.list_extend(servers, tools),
       auto_update = true,
     })
 

@@ -44,6 +44,7 @@ else
 fi
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.nix-profile/bin"
 export PATH="$PATH:$HOME/Android/Sdk/cmdline-tools/latest/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:$HOME/Android/Sdk/emulator"
@@ -121,12 +122,6 @@ eval "$(starship init zsh)"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/mzwallow/.dart-cli-completion/zsh-config.zsh ]] && . /home/mzwallow/.dart-cli-completion/zsh-config.zsh || true
 
-# uv
 eval "$(uv generate-shell-completion zsh)"
-## [/Completion]
-export PATH="$PATH:/home/mzwallow/Development/ai/unsloth-llm/tmp/ngc-cli"
-export LOCAL_NIM_CACHE=~/.cache/nim
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
 eval "$(direnv hook zsh)"
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

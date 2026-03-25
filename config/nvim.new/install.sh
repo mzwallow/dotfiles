@@ -6,7 +6,7 @@
 
 # 1. THE COMMON LIST:
 # Packages that share the exact same name across Homebrew, Pacman, and Apt.
-COMMON_PKGS="neovim git curl ripgrep luarocks tree-sitter-cli mermaid-cli"
+COMMON_PKGS="neovim git curl wget ripgrep luarocks tree-sitter-cli mermaid-cli lazygit"
 
 echo "Detecting operating system..."
 OS="$(uname -s)"
@@ -30,12 +30,14 @@ elif [ -f "/etc/arch-release" ]; then
     echo "Arch Linux detected. Using pacman..."
 
     # Arch-specific additions (Compiler + Clipboard tools + fd)
-    ARCH_PKGS="base-devel fd xclip wl-clipboard lua"
+    ARCH_PKGS="base-devel fd wl-clipboard lua51"
+    AUR_PKGS="neovim-git tree-sitter-cli"
 
     # Combine and install
     ALL_PKGS="$COMMON_PKGS $ARCH_PKGS"
     echo "Installing: $ALL_PKGS"
-    sudo pacman -Syu --needed --noconfirm $ALL_PKGS
+    sudo pacman -Sy --needed --noconfirm $ALL_PKGS
+    yay -Sy --needed $AUR_PKGS
 
 elif [ -f "/etc/debian_version" ]; then
     echo "Debian/Ubuntu detected. Using apt..."

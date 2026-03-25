@@ -4,6 +4,12 @@ go = "latest"
 bun = "latest"
 gemini-cli = "latest"
 uv = "latest"
+zig = "master"
+
+[env]
+
+[tasks]
 
 [settings]
-idiomatic_version_file_enable_tools = ["node"]
+
+[plugins]
