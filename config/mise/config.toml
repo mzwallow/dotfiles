@@ -5,6 +5,7 @@ bun = "latest"
 gemini-cli = "latest"
 uv = "latest"
 zig = "master"
+zls = "master"
 
 [env]
 
@@ -13,3 +14,4 @@ zig = "master"
 [settings]
 
 [plugins]
+zls = "https://github.com/mzwallow/mise-zls"
