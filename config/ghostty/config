@@ -21,4 +21,10 @@ cursor-color = c8c093
 selection-background = 2d4f67
 selection-foreground = c8c093
 
-font-family = DepartureMono Nerd Font
+font-family = "DepartureMono Nerd Font"
+
+
+macos-option-as-alt = left
+
+keybind = alt+left=unbind
+keybind = alt+right=unbind
