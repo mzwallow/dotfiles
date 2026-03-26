@@ -7,11 +7,12 @@ return {
         zig = { "zigfmt" },
         c = { "clang-format" },
         cpp = { "clang-format" },
+        go = { "golangci-lint" },
         nix = { "nixfmt" },
         json = { "prettierd" },
         yaml = { "prettierd" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        -- ["*"] = { "codespell" },
+        ["*"] = { "trim_whitespace" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         ["_"] = { "trim_whitespace" },

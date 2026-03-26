@@ -7,6 +7,7 @@ return {
       zig = { "zig" },
       c = { "cpplint" },
       cpp = { "cpplint" },
+      go = { "golangci-lint" },
       json = { "jsonlint" },
       yaml = { "yamllint" },
     }
