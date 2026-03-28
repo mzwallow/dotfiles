@@ -16,7 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { 'kepano/flexoki-neovim', name = 'flexoki', config = function() vim.cmd('colorscheme flexoki-dark') end },
+    {
+      "kepano/flexoki-neovim",
+      name = "flexoki",
+      config = function()
+        vim.cmd("colorscheme flexoki-dark")
+      end,
+    },
     -- import/override with your plugins
     { import = "plugins" },
   },

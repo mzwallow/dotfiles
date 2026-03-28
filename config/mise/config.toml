@@ -6,6 +6,7 @@ gemini-cli = "latest"
 uv = "latest"
 zig = "master"
 zls = "master"
+opencode = "latest"
 
 [env]
 
