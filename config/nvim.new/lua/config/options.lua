@@ -66,3 +66,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
+
+opt.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
+  group = vim.api.nvim_create_augroup("AutoReload", { clear = true }),
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
