@@ -8,8 +8,10 @@ return {
       c = { "cpplint" },
       cpp = { "cpplint" },
       go = { "golangci-lint" },
+      css = { "stylelint" },
       json = { "jsonlint" },
       yaml = { "yamllint" },
+      toml = { "tombi" },
     }
 
     vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
