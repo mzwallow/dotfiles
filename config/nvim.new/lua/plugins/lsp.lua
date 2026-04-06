@@ -2,8 +2,12 @@ local lsp = {
   "lua_ls",
   "clangd",
   "gopls",
+  "cssls",
   "jsonls",
   "yamlls",
+  "tombi",
+  "lemminx", -- xml
+  "hyprls",
 }
 local tools = {
   "stylua",
@@ -11,8 +15,10 @@ local tools = {
   "cpplint",
   "nixfmt",
   "golangci-lint",
+  "stylelint",
   "jsonlint",
   "yamllint",
+  "xmlformatter",
   "prettierd",
 }
 

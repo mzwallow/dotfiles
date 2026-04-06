@@ -9,8 +9,11 @@ return {
         cpp = { "clang-format" },
         go = { "golangci-lint" },
         nix = { "nixfmt" },
+        css = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
+        toml = { "tombi" },
+        xml = { "xmlformatter" },
         -- Use the "*" filetype to run formatters on all filetypes.
         ["*"] = { "trim_whitespace" },
         -- Use the "_" filetype to run formatters on filetypes that don't

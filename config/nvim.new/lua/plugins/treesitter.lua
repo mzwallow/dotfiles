@@ -4,10 +4,11 @@ return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
   build = ":TSUpdate",
-  ---@module "nvim-treesitter"
   config = function()
+    require("nvim-treesitter").install("all")
+
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "zig", "go", "rust" },
+      pattern = require("nvim-treesitter").get_available(),
       callback = function()
         -- syntax highlighting, provided by Neovim
         vim.treesitter.start()
