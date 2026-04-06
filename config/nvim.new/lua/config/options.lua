@@ -12,6 +12,7 @@ opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 
 -- Indentation
 opt.softtabstop = -1
+opt.autoindent = true
 opt.smartindent = true
 
 -- Display
