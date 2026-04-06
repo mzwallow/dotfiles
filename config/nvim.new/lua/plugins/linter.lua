@@ -10,6 +10,7 @@ return {
       go = { "golangci-lint" },
       css = { "stylelint" },
       json = { "jsonlint" },
+      jsonc = { "jsonlint" },
       yaml = { "yamllint" },
       toml = { "tombi" },
     }

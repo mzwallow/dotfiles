@@ -11,6 +11,7 @@ return {
         nix = { "nixfmt" },
         css = { "prettierd" },
         json = { "prettierd" },
+        jsonc = { "prettierd" },
         yaml = { "prettierd" },
         toml = { "tombi" },
         xml = { "xmlformatter" },

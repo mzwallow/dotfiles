@@ -15,6 +15,8 @@
 /*     sidebar-mode: true; */
 /* } */
 
+@import "flexoki"
+
 configuration {
 	modes: "window,drun,run,emoji";
 /*	font: "mono 12";*/
@@ -85,15 +87,15 @@ configuration {
 /*	completer-mode: "filebrowser";*/
 /*	imdkit: true;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
-/*	display-window: ;*/
-/*	display-run: ;*/
-/*	display-ssh: ;*/
-/*	display-drun: ;*/
+	display-window: " window";
+	display-run: " run";
+	display-ssh: "󰣀 ssh";
+	display-drun: "󰀻 drun";
 /*	display-combi: ;*/
 /*	display-keys: ;*/
 /*	display-filebrowser: ;*/
 /*	display-recursivebrowser: ;*/
-/*	display-emoji: ;*/
+	display-emoji: "󰄛 emoji";
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
 /*	kb-secondary-paste: "Control+v,Insert";*/
 /*	kb-secondary-copy: "Control+c";*/

@@ -7,7 +7,7 @@
 			"DP-1",
 		],
 		"position": "top",
-		"modules-left": ["hyprland/workspaces"],
+		"modules-left": ["hyprland/workspaces", "group/media"],
 		"modules-center": ["clock"],
 		"modules-right": ["tray", "hyprland/language", "group/hardware"],
 		"hyprland/workspaces": {
@@ -23,49 +23,19 @@
 				"8": "八",
 				"9": "九",
 				"10": "十",
-				// "6": "一",
-				// "7": "二",
-				// "8": "三",
-				// "9": "四",
-				// "10": "五",
-				"11": "一",
-				"12": "二",
-				"13": "三",
-				"14": "四",
-				"15": "五",
-				"16": "六",
-				"17": "七",
-				"18": "八",
-				"19": "九",
-				"20": "十",
 				"urgent": "",
 				"active": "",
 				"default": "",
 			},
 			"persistent-workspaces": {
-				"*": 5,
-				// "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-				// "HDMI-A-1": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-				// "DP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-				// "HDMI-A-1": [
-				// 	1,
-				// 	2,
-				// 	3,
-				// 	4,
-				// 	5
-				// ],
-				// "DP-1": [
-				// 	6,
-				// 	7,
-				// 	8,
-				// 	9,
-				// 	10
-				// ],
+				"*": 10,
 			},
 		},
-		"clock": {
-			"format-alt": "{:%a, %d. %b  %H:%M}",
+		"group/media": {
+			"orientation": "horizontal",
+			"modules": [],
 		},
+		"clock": { "format-alt": "{:%a, %d. %b  %H:%M}" },
 		"hyprland/window": {
 			"format": "{}",
 			"rewrite": {
@@ -86,6 +56,7 @@
 			"orientation": "horizontal",
 			"modules": [
 				"gamemode",
+				"privacy",
 				"wireplumber",
 				"backlight",
 				"cpu",
@@ -94,9 +65,21 @@
 				"bluetooth",
 				"network",
 				"battery",
-				"privacy",
 				"systemd-failed-units",
 			],
+		},
+		"mpris": {
+			"format": "{player_icon} {dynamic}",
+			"format-paused": "{status_icon} <i>{dynamic}</i>",
+			"player-icons": {
+				"default": "▶",
+				"mpv": "🎵",
+			},
+			"status-icons": {
+				"paused": "⏸",
+			},
+			"interval": 1,
+			// "ignored-players": ["firefox"]
 		},
 		"gamemode": {
 			"format": "{glyph}",
@@ -109,6 +92,29 @@
 			"icon-size": 20,
 			"tooltip": true,
 			"tooltip-format": "Games running: {count}",
+		},
+		"privacy": {
+			"icon-spacing": 4,
+			"icon-size": 18,
+			"transition-duration": 250,
+			"modules": [
+				{
+					"type": "screenshare",
+					"tooltip": true,
+					"tooltip-icon-size": 24,
+				},
+				{
+					"type": "audio-out",
+					"tooltip": true,
+					"tooltip-icon-size": 24,
+				},
+				{
+					"type": "audio-in",
+					"tooltip": true,
+					"tooltip-icon-size": 24,
+				},
+			],
+			"ignore-monitor": true,
 		},
 		"wireplumber": {
 			"format": "{icon} {volume}%",
@@ -155,14 +161,14 @@
 		"network": {
 			"interval": 10,
 			"format-wifi": "{icon} {essid}",
-			"format-ethernet": "{icon} ",
+			"format-ethernet": "{icon} {ipaddr}/{cidr}",
 			"format-disconnected": "{icon} ",
 			"format-icons": {
 				"wifi": ["󰤟", "󰤢", "󰤢", "󰤨"],
 				"ethernet": ["󰈀"],
 				"disconnected": ["󰤭"],
 			},
-			"tooltip-format": "{ifname} {ipaddr}/{cidr}",
+			"tooltip-format": "{ifname} {ipaddr}/{cidr}\nD: {bandwidthDownBytes} U: {bandwidthUpBytes}",
 		},
 		"battery": {
 			"states": {
@@ -172,6 +178,13 @@
 			"format": "{icon}  {capacity}%",
 			"format-icons": ["", "", "", "", ""],
 			"tooltip-format": "P:{power} {timeTo}",
+		},
+		"systemd-failed-units": {
+			"hide-on-ok": false, // Do not hide if there is zero failed units.
+			"format": "✗ {nr_failed}",
+			"format-ok": "✓",
+			"system": true, // Monitor failed systemwide units.
+			"user": false, // Ignore failed user units.
 		},
 	},
 ]

@@ -1,6 +1,6 @@
-@define-color base #191E21;
+@define-color base rgb(16, 15, 15);
 
-@define-color text #D3CFCF;
+@define-color text rgb(206, 205, 195);
 @define-color subtext0 #BCC5C8;
 @define-color subtext1 #A1ADB5;
 
@@ -14,3 +14,22 @@
 @define-color overlay0 #6c7086;
 @define-color overlay1 #7f849c;
 @define-color overlay2 #9399b2;
+
+@define-color bg rgb(16, 15, 15); /* Main background */
+@define-color bg-2 rgb(28, 27, 26); /* Secondary background */
+@define-color ui rgb(40, 39, 38); /* Borders */
+@define-color ui-2 rgb(52, 51, 49); /* Hovered borders */
+@define-color ui-3 rgb(64, 62, 60); /* Active borders */
+@define-color tx-3 rgb(87, 86, 83); /* Faint text */
+@define-color tx-2 rgb(135, 133, 128); /* Muted text */
+@define-color tx rgb(206, 205, 195); /* Primary text */
+@define-color black rgb(16, 15, 15);
+@define-color paper rgb(255, 252, 240);
+@define-color red rgb(209, 77, 65); /*  */
+@define-color orange rgb(218, 112, 44); /*  */
+@define-color yellow rgb(208, 162, 21); /*  */
+@define-color green rgb(135, 154, 57); /*  */
+@define-color cyan rgb(58, 169, 159); /*  */
+@define-color blue rgb(67, 133, 190); /*  */
+@define-color purple rgb(139, 126, 200); /*  */
+@define-color magenta rgb(206, 93, 151); /*  */
