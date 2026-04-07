@@ -7,6 +7,7 @@ local lsp = {
   "yamlls",
   "tombi",
   "lemminx", -- xml
+  "bashls",
   "hyprls",
 }
 local tools = {
@@ -20,6 +21,8 @@ local tools = {
   "yamllint",
   "xmlformatter",
   "prettierd",
+  "shellcheck",
+  "shfmt",
 }
 
 ---@module "lazy"
@@ -53,6 +56,10 @@ return {
     map.set("n", "grr", function()
       picker.lsp_references()
     end, { nowait = true, desc = "References" })
+
+    map.set("n", "gri", function()
+      picker.lsp_implementations()
+    end, { desc = "Implementations" })
 
     map.set("n", "gd", function()
       picker.lsp_definitions()

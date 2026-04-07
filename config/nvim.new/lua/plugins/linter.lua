@@ -13,6 +13,7 @@ return {
       jsonc = { "jsonlint" },
       yaml = { "yamllint" },
       toml = { "tombi" },
+      sh = { "shellcheck" },
     }
 
     vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost" }, {
