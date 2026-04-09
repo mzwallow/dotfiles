@@ -8,6 +8,7 @@ zig = "master"
 zls = "master"
 opencode = "latest"
 claude = "latest"
+rust = "latest"
 
 [env]
 

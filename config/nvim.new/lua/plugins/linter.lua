@@ -8,6 +8,7 @@ return {
       c = { "cpplint" },
       cpp = { "cpplint" },
       go = { "golangci-lint" },
+      rust = { "clippy" },
       css = { "stylelint" },
       json = { "jsonlint" },
       jsonc = { "jsonlint" },

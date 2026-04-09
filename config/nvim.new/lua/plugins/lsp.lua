@@ -2,6 +2,7 @@ local lsp = {
   "lua_ls",
   "clangd",
   "gopls",
+  "rust_analyzer",
   "cssls",
   "jsonls",
   "yamlls",
