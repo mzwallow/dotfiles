@@ -58,6 +58,7 @@
 				"gamemode",
 				"privacy",
 				"wireplumber",
+				"wireplumber#source",
 				"backlight",
 				"cpu",
 				"memory",
@@ -119,8 +120,16 @@
 		"wireplumber": {
 			"format": "{icon} {volume}%",
 			"format-muted": "",
-			"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-			"format-icons": ["", "", ""],
+			"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+			"on-click-right": "pavucontrol",
+			"format-icons": ["", "", "", ""],
+		},
+		"wireplumber#source": {
+			"node-type": "Audio/Source",
+			"format": " {volume}%",
+			"format-muted": "",
+			"on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+			"scroll-step": 5,
 		},
 		"backlight": {
 			"device": "intel_backlight",
@@ -137,15 +146,15 @@
 		},
 		"cpu": {
 			"interval": 1,
-			"format": " {usage}%",
+			"format": " {usage}%",
 		},
 		"memory": {
 			"interval": 1,
-			"format": " {percentage}%",
+			"format": " {percentage}%",
 			"tooltip-format": "{used:0.1f}G/{total:0.1f}G",
 		},
 		"disk": {
-			"format": " {free}",
+			"format": " {free}",
 			"tooltip-format": "{used} / {total} | Free {percentage_free}%",
 		},
 		"bluetooth": {
