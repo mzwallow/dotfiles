@@ -11,7 +11,7 @@ return {
     image = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
-    picker = { enabled = true },
+    picker = { enabled = true, exclude = { "**/node_modules/**" } },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
