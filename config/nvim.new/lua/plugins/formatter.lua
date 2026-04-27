@@ -13,6 +13,7 @@ return {
         cpp = { "clang-format" },
         go = { "golangci-lint", timeout_ms = 1500 },
         rust = { "rustfmt" },
+        python = { "ruff" },
         nix = { "nixfmt" },
         html = { "prettierd" },
         javascript = { "prettierd" },

@@ -3,12 +3,13 @@ return {
   event = {},
   config = function()
     require("lint").linters_by_ft = {
-      lua = { "stylua" },
+      lua = { "luacheck" },
       zig = { "zig" },
       c = { "cpplint" },
       cpp = { "cpplint" },
       go = { "golangci-lint" },
       rust = { "clippy" },
+      python = { "ruff" },
       html = { "htmlhint" },
       javascript = { "oxlint", "eslint_d" },
       typescript = { "oxlint", "eslint_d" },

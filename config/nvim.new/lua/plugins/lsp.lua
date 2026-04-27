@@ -3,6 +3,7 @@ local lsp = {
   "clangd",
   "gopls",
   "rust_analyzer",
+  "ty", -- python
   "html-lsp",
   "cssls",
   "typescript-language-server",
@@ -16,10 +17,12 @@ local lsp = {
 }
 local tools = {
   "stylua",
+  "luacheck",
   "clang-format",
   "cpplint",
   "nixfmt",
   "golangci-lint",
+  "ruff", -- python
   "htmlhint",
   "eslint_d",
   "oxlint",
