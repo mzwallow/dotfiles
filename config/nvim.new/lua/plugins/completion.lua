@@ -1,19 +1,8 @@
+vim.opt.shortmess:append("c")
+
 ---@module "lazy"
 ---@type LazySpec
 return {
-  {
-    "folke/lazydev.nvim",
-    ft = "lua", -- only load on lua files
-    ---@module "lazydev"
-    ---@type lazydev.Config
-    opts = {
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
-  },
   { -- optional blink completion source for require statements and module annotations
     "saghen/blink.cmp",
     version = "1.*",
@@ -29,6 +18,10 @@ return {
     ---@module "blink-cmp"
     ---@type blink.cmp.Config
     opts = {
+      completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 250 },
+        list = { selection = { preselect = true, auto_insert = false } },
+      },
       sources = {
         -- add lazydev to your completion providers
         default = {
@@ -52,8 +45,32 @@ return {
           },
         },
       },
-      keymap = { preset = "default" },
       fuzzy = { implementation = "prefer_rust_with_warning" },
+      signature = { enabled = true },
+      cmdline = {
+        enabled = true,
+        keymap = { preset = "inherit" },
+        completion = {
+          menu = { auto_show = true },
+          ghost_text = { enabled = false },
+        },
+      },
+      keymap = {
+        preset = "default",
+      },
+    },
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    ---@module "lazydev"
+    ---@type lazydev.Config
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
     },
   },
 }

@@ -48,7 +48,7 @@ return {
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
+      { "neovim/nvim-lspconfig", dependencies = { "saghen/blink.cmp", "folke/lazydev.nvim" } },
       "b0o/schemastore.nvim",
     },
   },
